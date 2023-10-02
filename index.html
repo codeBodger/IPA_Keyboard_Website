@@ -61,13 +61,13 @@
 	<h2 id="move-to-github" style="color: red; visibility: hidden; height: 0;">
 		WARNING: This site still works perfectly when it loads, but it is inconsistant in loading.  Click <a href="https://htmlpreview.github.io/?https://github.com/codeBodger/IPA_Keyboard_Website/blob/main/index.html">here</a> for a more consistantly live site.
 		<script>
-			let moveTotGithub = document.getElementById("move-to-github")
+			let moveToGithub = document.getElementById("move-to-github")
 			if (window.location.href == "https://htmlpreview.github.io/?https://github.com/codeBodger/IPA_Keyboard_Website/blob/main/index.html") {
-				moveToGithub.remove
+				moveToGithub.remove()
 			}
 			else {
-				moveTotGithub.style.visibility = 'visible'
-				moveTotGithub.style.height = 'auto'
+				moveToGithub.style.visibility = 'visible'
+				moveToGithub.style.height = 'auto'
 			}
 		</script>
 	</h2>
