@@ -13,7 +13,7 @@ This is the website that allows you to type the IPA characters.
 - Open it and set your username and password.  All that should be in that file when you're done is a line with your username and a line with your password.  
 - Once you've done this, close the window that was opened when you ran the program.
 - Now rerun the program.
-- Return to [https://ipa-keyboard-website-2.rowanackerman.repl.co/](https://ipa-keyboard-website-2.rowanackerman.repl.co/) on the device that you want to type on.
+- Return to [https://htmlpreview.github.io/?https://github.com/codeBodger/IPA_Keyboard_Website/blob/main/index.html](https://htmlpreview.github.io/?https://github.com/codeBodger/IPA_Keyboard_Website/blob/main/index.html) on the device that you want to type on.
 - Enter the username and password that you entered in `config.txt` into the text entry boxes and click submit.
 - The program should be working now!  Simply click the buttons and the characters should appear on the computer that you ran the executable on.
 
