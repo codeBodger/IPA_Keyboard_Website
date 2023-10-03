@@ -81,7 +81,10 @@
 			<p>This site allows you to press buttons for the IPA symbols on your phone (or other device) and have them be typed on your computer (provided you have it configured correctly).</p>
 		</div>
 		<div class="text">
-			<h2><a href="https://github.com/codeBodger/IPA_Keyboard_Website#readme">CLICK HERE FOR INSTRUCTIONS FOR THE USAGE OF THIS SITE/PROGRAM</a></h2>
+			<h2><a id="readme" href="/">CLICK HERE FOR INSTRUCTIONS FOR THE USAGE OF THIS SITE/PROGRAM</a></h2>
+			<script>
+				document.getElementById("readme").setAttribute("href", "https://github.com/codeBodger/IPA_Keyboard_Website#readme")
+			</script>
 		</div>
 		<div class="text">
 			<p>If the site doesn't work, first make sure your Username and Password match what you put in "config.txt".  If they do, go to this site: <a target="_blank" href="https://replit.com/@RowanAckerman/IPA-Keyboard-Website-Backend">https://replit.com/@RowanAckerman/IPA-Keyboard-Website-Backend</a> and click the play button in the middle of the screen or the green "Run" button.  Wait for a few seconds, and then go back to this site and try again.  </p>
@@ -907,7 +910,10 @@
 	
 	<div class="info showAlways">
 		<div class="text">
-			<p>Queries and comments can be directed to <a href="rnackerm+ipa@udel.edu">rnackerm+ipa@udel.edu</a></p>
+			<p>Queries and comments can be directed to <a id="email" href="/">rnackerm+ipa@udel.edu</a></p>
+			<script>
+				document.getElementById("email").setAttribute("email", "rnackerm+ipa@udel.edu");
+			</script>
 		</div>
 		<script>
 			updateShowInfo();
