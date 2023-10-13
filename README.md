@@ -9,12 +9,12 @@ This is the website that allows you to type the IPA characters.
 ## Usage of the program/website
 - Run the executable (do this on the computer that you want the characters to be sent to)
 - You may get a popup that says you need to install Java.  Clicking OK should bring up a page to install it.  Do this.  
-- Once you have run the executable file, look in the folder that it's in (and that folder's subfolders) for a file called `config.txt`.
-- Open it and set your username and password.  All that should be in that file when you're done is a line with your username and a line with your password.  
-- Once you've done this, close the window that was opened when you ran the program.
-- Now rerun the program.
+- (Skip if using QR codes) Once you have run the executable file, look in the folder that it's in (and that folder's subfolders) for a file called `config.txt`.
+- (Skip if using QR codes) Open it and set your username and password.  All that should be in that file when you're done is a line with your username and a line with your password.  
+- (Skip if using QR codes) Once you've done this, close the window that was opened when you ran the program.
+- (Skip if using QR codes) Now rerun the program.
 - Return to [https://htmlpreview.github.io/?https://github.com/codeBodger/IPA_Keyboard_Website/blob/main/index.html](https://htmlpreview.github.io/?https://github.com/codeBodger/IPA_Keyboard_Website/blob/main/index.html) on the device that you want to type on.
-- Enter the username and password that you entered in `config.txt` into the text entry boxes and click submit.
+- Enter the username and password that you entered in `config.txt` into the text entry boxes (or the QR code key into the password box) and click submit.
 - The program should be working now!  Simply click the buttons and the characters should appear on the computer that you ran the executable on.
 
 ## Questions, Comments, and Issues
