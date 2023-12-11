@@ -79,7 +79,6 @@
 	</div>
 	<div class="info">
 		<div class="text">
-			<p style="color: red;">WARNING: This site is quite insecure.  It could be worse, but it is a bad idea to use a password that you use for other things, as it could get leaked.  A simple password should be sufficient, as this site doesn't (shouldn't) contain any sensitive data.</p>
 			<p>The <a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet">International Phonetic Alphabet</a> (IPA) is a set of symbols that linguists use to describe the sounds of spoken languages.</p>
 			<p>This site allows you to press buttons for the IPA symbols on your phone (or other device) and have them be typed on your computer (provided you have it configured correctly).</p>
 		</div>
@@ -131,28 +130,64 @@
 		</div>
 	</noscript>
 	
-	<div id="logedout">
-		<script>
-			if (localStorage.getItem("key"))
-				document.getElementById("logedout").remove();
-		</script>
-		<p>If you use the wrong Username or Password, you won't get an error, it just won't work.</p>
-		<div class="login">
-			<label>Username:</label><input id="username"><br>
-			<label>Password:</label><input id="password" type="password"><br>
-			<button onclick="localStorage.setItem('key', document.getElementById('username').value + document.getElementById('password').value); location.reload();">Login</button>
-			<p>Note: If you're using a QR Code or the key provided with it, just put that key in the password box and leave the username field blank.</p>
+	<div id="login">
+		<div id="logedout">
+			<script>
+				if (localStorage.getItem("key"))
+					document.getElementById("logedout").remove();
+			</script>
+			<p>Enter the Key provided when you ran the program on your computer (what you got when you scanned the QR code).</p>
+			<p>If you use the wrong Key, you won't get an error, it just won't work.</p>
+			<div class="login">
+				<label>Key:</label><input id="key" type="password"><br>
+				<button onclick="localStorage.setItem('key', document.getElementById('key').value); location.reload();">Login</button><br>
+				<button onclick="localStorage.setItem('legacy', 'yes'); location.reload()">Switch to Legacy Login (Username and Password)</button>
+			</div>
+		</div>
+		<div id="logedin">
+			<script>
+				if (!localStorage.getItem("key"))
+					document.getElementById("logedin").remove();
+			</script>
+			<p>If you're loged in improperly (wrong Key), you won't get an error, it just won't work.</p>
+			<div class="login">
+				<button onclick="localStorage.removeItem('key'); location.reload();">Logout</button>
+				<button onclick="localStorage.removeItem('key'); location.reload();">Relogin</button>
+			</div>
 		</div>
 	</div>
-	<div id="logedin">
+
+	<div id="legacy-login">
 		<script>
-			if (!localStorage.getItem("key"))
-				document.getElementById("logedin").remove();
+			if (localStorage.getItem("legacy"))
+				document.getElementById("login").remove()
+			else
+				document.getElementById('legacy-login').remove()
 		</script>
-		<p>If you're loged in improperly (wrong Username or Password), you won't get an error, it just won't work.</p>
-		<div class="login">
-			<button onclick="localStorage.removeItem('key'); location.reload();">Logout</button>
-			<button onclick="localStorage.removeItem('key'); location.reload();">Relogin</button>
+		<div id="legacy-logedout">
+			<script>
+				if (localStorage.getItem("key"))
+					document.getElementById("legacy-logedout").remove();
+			</script>
+			<p style="color: red;">WARNING: This site is quite insecure.  It could be worse, but it is a bad idea to use a password that you use for other things, as it could get leaked.  A simple password should be sufficient, as this site doesn't (shouldn't) contain any sensitive data.</p>
+			<p>If you use the wrong Username or Password, you won't get an error, it just won't work.</p>
+			<div class="login">
+				<label>Username:</label><input id="username"><br>
+				<label>Password:</label><input id="password" type="password"><br>
+				<button onclick="localStorage.setItem('key', document.getElementById('username').value + document.getElementById('password').value); location.reload();">Login</button><br>
+				<button onclick="localStorage.setItem('legacy', ''); location.reload()">Switch to Standard Login (Random Key)</button>
+			</div>
+		</div>
+		<div id="legacy-logedin">
+			<script>
+				if (!localStorage.getItem("key"))
+					document.getElementById("legacy-logedin").remove();
+			</script>
+			<p>If you're loged in improperly (wrong Username or Password), you won't get an error, it just won't work.</p>
+			<div class="login">
+				<button onclick="localStorage.removeItem('key'); location.reload();">Logout</button>
+				<button onclick="localStorage.removeItem('key'); location.reload();">Relogin</button>
+			</div>
 		</div>
 	</div>
 		
