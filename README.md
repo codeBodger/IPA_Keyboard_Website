@@ -6,7 +6,7 @@ This is the website that allows you to type the IPA characters.
 - For Linux: download the linux zip (hopefully the fact that it's AMD doesn't matter).  Extract it and run the shell file.  You use Linux, you can figure it out.  
 - For MacOS: sorry, this isn't supported yet.  You'll need to compile it yourself.  Go to [processing.org](processing.org) for more information.  
 
-## Usage of the program/website _Video Coming Soon_
+## Usage of the program/website [Tutorial Video](https://youtu.be/Dq0mX-xQkGM)
 - Run the executable (do this on the computer that you want the characters to be sent to)
 - You may get a popup that says you need to install Java.  Clicking OK should bring up a page to install it.  Do this.  
 - (Skip if using QR codes) Once you have run the executable file, look in the folder that it's in (and that folder's subfolders) for a file called `config.txt`.
