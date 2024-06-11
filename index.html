@@ -139,7 +139,7 @@
 			<div class="login">
 				<label>Key:</label><input id="key" type="password"><br>
 				<button onclick="localStorage.setItem('key', document.getElementById('key').value); location.reload();">Login</button><br>
-				<button onclick="localStorage.setItem('legacy', 'yes'); location.reload()">Switch to Legacy Login (Username and Password)</button>
+				<!-- <button onclick="localStorage.setItem('legacy', 'yes'); location.reload()">Switch to Legacy Login (Username and Password)</button> -->
 			</div>
 		</div>
 		<div id="logedin">
@@ -149,13 +149,12 @@
 			</script>
 			<p>If you're loged in improperly (wrong Key), you won't get an error, it just won't work.</p>
 			<div class="login">
-				<button onclick="localStorage.removeItem('key'); location.reload();">Logout</button>
-				<button onclick="localStorage.removeItem('key'); location.reload();">Relogin</button>
+				<button onclick="localStorage.removeItem('key'); location.reload();">Logout/Relogin</button>
 			</div>
 		</div>
 	</div>
 
-	<div id="legacy-login">
+	<!-- <div id="legacy-login">
 		<script>
 			if (localStorage.getItem("legacy"))
 				document.getElementById("login").remove()
@@ -187,7 +186,7 @@
 				<button onclick="localStorage.removeItem('key'); location.reload();">Relogin</button>
 			</div>
 		</div>
-	</div>
+	</div> -->
 		
 	<!-- Generator: Adobe Illustrator 23.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 	<svg version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 612 792" style="enable-background:new 0 0 612 792;" xml:space="preserve" sodipodi:docname="IPA_chart_2020.svg" inkscape:version="1.2.2 (732a01da63, 2022-12-09)" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
