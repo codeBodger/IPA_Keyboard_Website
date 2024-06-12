@@ -154,7 +154,6 @@
 			<div class="login">
 				<label>Key:</label><input id="key" type="password"><br>
 				<button onclick="localStorage.setItem('key', document.getElementById('key').value); location.reload();">Login</button><br>
-				<!-- <button onclick="localStorage.setItem('legacy', 'yes'); location.reload()">Switch to Legacy Login (Username and Password)</button> -->
 			</div>
 		</div>
 		<div id="logedin">
@@ -169,40 +168,6 @@
 		</div>
 	</div>
 
-	<!-- <div id="legacy-login">
-		<script>
-			if (localStorage.getItem("legacy"))
-				document.getElementById("login").remove()
-			else
-				document.getElementById('legacy-login').remove()
-		</script>
-		<div id="legacy-logedout">
-			<script>
-				if (localStorage.getItem("key"))
-					document.getElementById("legacy-logedout").remove();
-			</script>
-			<p style="color: red;">WARNING: This site is quite insecure.  It could be worse, but it is a bad idea to use a password that you use for other things, as it could get leaked.  A simple password should be sufficient, as this site doesn't (shouldn't) contain any sensitive data.</p>
-			<p>If you use the wrong Username or Password, you won't get an error, it just won't work.</p>
-			<div class="login">
-				<label>Username:</label><input id="username"><br>
-				<label>Password:</label><input id="password" type="password"><br>
-				<button onclick="localStorage.setItem('key', document.getElementById('username').value + document.getElementById('password').value); location.reload();">Login</button><br>
-				<button onclick="localStorage.setItem('legacy', ''); location.reload()">Switch to Standard Login (Random Key)</button>
-			</div>
-		</div>
-		<div id="legacy-logedin">
-			<script>
-				if (!localStorage.getItem("key"))
-					document.getElementById("legacy-logedin").remove();
-			</script>
-			<p>If you're loged in improperly (wrong Username or Password), you won't get an error, it just won't work.</p>
-			<div class="login">
-				<button onclick="localStorage.removeItem('key'); location.reload();">Logout</button>
-				<button onclick="localStorage.removeItem('key'); location.reload();">Relogin</button>
-			</div>
-		</div>
-	</div> -->
-		
 	<div id="chart">
 		<div id="pulmonic">
 			<button id="127z" style="width: 18.898005px; height: 17.929001px; left: 116.158px; top: 84.646004px"></button>
@@ -1016,13 +981,11 @@ id="path22704" /> -->
 			let id = button.getAttribute("id")
 			let code = parseInt(id)
 			let codeStr = `${code}`.padStart(3,0)
-			// y.setAttribute("onclick", `console.log('${codeStr}')`)
 			button.setAttribute("onclick", `ipa('${codeStr}')`)
 		}
 
 		function ipa(numstr) {
 			console.log("hi")
-//			fetch("https://9632928b-4f4b-49ca-a363-29f54c0b2e01-00-3rn2zl79a5fyb.picard.repl.co/", {
 			fetch("https://phonetics.ling.udel.edu/redirect.py", {
 				method: "POST",
 				headers: {
