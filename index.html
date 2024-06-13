@@ -148,10 +148,10 @@
 	</noscript>
 	
 	<div id="login">
-		<div id="logedout">
+		<div id="loggedout">
 			<script>
 				if (localStorage.getItem("key"))
-					document.getElementById("logedout").remove();
+					document.getElementById("loggedout").remove();
 			</script>
 			<p>Enter the Key provided when you ran the program on your computer (what you got when you scanned the QR code).</p>
 			<p>If you use the wrong Key, you won't get an error, it just won't work.</p>
@@ -160,12 +160,12 @@
 				<button onclick="localStorage.setItem('key', document.getElementById('key').value); location.reload();">Login</button><br>
 			</div>
 		</div>
-		<div id="logedin">
+		<div id="loggedin">
 			<script>
 				if (!localStorage.getItem("key"))
-					document.getElementById("logedin").remove();
+					document.getElementById("loggedin").remove();
 			</script>
-			<p>If you're loged in improperly (wrong Key), you won't get an error, it just won't work.</p>
+			<p>If you're logged in improperly (wrong Key), you won't get an error, it just won't work.</p>
 			<div class="login">
 				<button onclick="localStorage.removeItem('key'); location.reload();">Logout/Relogin</button>
 			</div>
@@ -260,7 +260,7 @@
 			<button id="047z"    class="chartButton buttonBorder" style="width: 127.37717px; height: 17.253927px; left: 186.72665px; top: 441.20389px">
 				Simultaneous Voiceless Postalveolar Fricative and Voiceless Velar Fricative
 			</button>
-			<button id="010z115" class="chartButton buttonBorder" style="width: 29.229511px; height: 51.765343px; left: 303.07101px; top: 458.45959px">Africate Marker (Tie Below)</button>
+			<button id="010z115" class="chartButton buttonBorder" style="width: 29.229511px; height: 51.765343px; left: 303.07101px; top: 458.45959px">Affricate Marker (Tie Below)</button>
 			<button id="077z"    class="chartButton buttonBorder" style="width: 29.229511px; height: 51.765343px; left: 332.30151px; top: 458.45959px">Double Articulation Marker (Tie Above)</button>
 		</div>
 		<div id="vowels">
