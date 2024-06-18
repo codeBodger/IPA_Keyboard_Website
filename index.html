@@ -903,8 +903,30 @@
 			}).then((rec) => rec.text())
 			  .then((value) => {
 			  	value = value.split("\n")[0];
-			  	if (value !== "success")
-			  		alert("The key you're trying to send to isn't activated!");
+			  	switch (value) {
+			  		case "success":
+			  		break;
+
+			  		case "nokey":
+			  			alert(
+			  				"The key you're trying to send to isn't activated!\n" +
+			  				"You may have entered the wrong key, or you may have been timed out."
+			  			);
+			  		break;
+
+			  		case "noclient":
+			  			alert(
+			  				"The client you're trying to send to does not exist or no-longer exists!\n" +
+			  				"As such, the key has been deactivated.  Please reopen the client."
+			  			);
+			  		break;
+
+			  		default:
+			  			alert(
+			  				"An unknown error occurred!\n" +
+			  				"Please contact me at the email below."
+			  			);
+				}
 			});
 		}
 	</script>
