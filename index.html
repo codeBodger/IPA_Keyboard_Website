@@ -900,6 +900,10 @@
 					"Content-type": "text/plain"
 				},
 				body: numstr + "\\" + localStorage.getItem('key')
+			}).then((rec) => rec.text())
+			  .then((value) => {
+			  	if (value !== "success")
+			  		alert("The key you're trying to send to isn't activated!")
 			});
 		}
 	</script>
