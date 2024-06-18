@@ -902,8 +902,9 @@
 				body: numstr + "\\" + localStorage.getItem('key')
 			}).then((rec) => rec.text())
 			  .then((value) => {
+			  	value = value.split("\n")[0];
 			  	if (value !== "success")
-			  		alert("The key you're trying to send to isn't activated!")
+			  		alert("The key you're trying to send to isn't activated!");
 			});
 		}
 	</script>
