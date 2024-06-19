@@ -113,6 +113,12 @@
 		</script>
 	</h2>
 	<div>
+		<h1>Main Menu</h1>
+		<h2><a href="/login">Login</a></h2>
+		<h2><a href="/tutorial">Tutorial</a></h2>
+		<h2><a href="/docs">Documentation</a></h2>
+	</div>
+	<div>
 		<a id="hideInfo" href="javascript:hideInfo();">Hide info</a>
 	</div>
 	<div class="info">
@@ -164,31 +170,6 @@
 			<p>This interactive chart won't work without JavaScript enabled. Please enable JavaScript or upgrade to a modern web browser.</p>
 		</div>
 	</noscript>
-	
-	<div id="login">
-		<div id="loggedout">
-			<script>
-				if (localStorage.getItem("key"))
-					document.getElementById("loggedout").remove();
-			</script>
-			<p>Enter the Key provided when you ran the program on your computer (what you got when you scanned the QR code).</p>
-			<p>If you use the wrong Key, you won't get an error, it just won't work.</p>
-			<div class="login">
-				<label>Key:</label><input id="key" type="password"><br>
-				<button onclick="localStorage.setItem('key', document.getElementById('key').value); location.reload();">Login</button><br>
-			</div>
-		</div>
-		<div id="loggedin">
-			<script>
-				if (!localStorage.getItem("key"))
-					document.getElementById("loggedin").remove();
-			</script>
-			<p>If you're logged in improperly (wrong Key), you won't get an error, it just won't work.</p>
-			<div class="login">
-				<button onclick="localStorage.removeItem('key'); location.reload();">Logout/Relogin</button>
-			</div>
-		</div>
-	</div>
 
 	<div id="chart">
 		<div class="chartText chartH1" style="top: 33px">THE INTERNATIONAL PHONETIC ALPHABET (revised to 2020)</div>
@@ -899,11 +880,11 @@
 				headers: {
 					"Content-type": "text/plain"
 				},
-				body: numstr + "\\" + localStorage.getItem('key')
+				body:  "send\\" + numstr + localStorage.getItem('key')
 			}).then((rec) => rec.text())
 			  .then((value) => {
-			  	value = value.split("\n")[0];
-			  	switch (value) {
+			  	response = value.split("\n")[0];
+			  	switch (response) {
 			  		case "success":
 			  		break;
 

@@ -1,7 +1,67 @@
 <!DOCTYPE html>
 <html>
-    <head></head>
-    <body>
-        <h1 style="color: red;">Login page coming soon!</h1>
-    </body>
+	<head></head>
+	<body>
+		<div id="login">
+			<div id="loggedout">
+				<script>
+					if (localStorage.getItem("key"))
+						document.getElementById("loggedout").remove();
+				</script>
+				<p>Enter the Key provided when you ran the program on your computer.</p>
+				<div class="login">
+					<label>Key:</label><input id="linking-key" type="text"><br>
+					<button onclick="login();">Login</button><br>
+				</div>
+			</div>
+			<div id="loggedin">
+				<script>
+					if (!localStorage.getItem("key"))
+						document.getElementById("loggedin").remove();
+				</script>
+				<div class="login">
+					<button onclick="localStorage.removeItem('key'); location.reload();">Logout/Relogin</button>
+				</div>
+			</div>
+		</div>
+
+		<script>
+			function login() {
+				fetch("https://phonetics.ling.udel.edu/redirect.py", {
+					method: "POST",
+					headers: {
+						"Content-type": "text/plain"
+					},
+					body: "login\\" + document.getElementById("linking-key").value
+				}).then((rec) => rec.text())
+				  .then((value) => {
+					[key, response] = value.split("\n").slice(0,2);
+					console.log(response + '\n' + key);
+					switch (response) {
+						case "success":
+							localStorage.setItem("key", key);
+							location.assign('/');
+						break;
+
+						case "nokey":
+							alert("The key you're trying to link with doesn't exist!");
+						break;
+
+						case "noclient":
+							alert("The client you're trying to link to doesn't exist!")
+
+						case "expired":
+							alert("The key you're trying to link with has expired!");
+						break;
+
+						default:
+							alert(
+								"An unknown error occurred!\n" +
+								"Please contact me at the email below."
+							);
+					}
+				  });
+			}
+		</script>
+	</body>
 </html>
