@@ -1,14 +1,31 @@
 <!DOCTYPE html>
 <html>
-	<head></head>
+	<head>
+		<style>
+			h1 {
+				text-align: center;
+			}
+			div {
+				margin: auto;
+				width: fit-content;
+			}
+			label {
+				font-size: 24px;
+			}
+			button,
+			input {
+				font-size: 20px;
+			}
+		</style>
+	</head>
 	<body>
 		<script>
 			if (localStorage.getItem("key")) location.assign('/');
 		</script>
-		<p>Enter the Key provided when you ran the program on your computer.</p>
+		<h1>Enter the Key provided when you<br>ran the program on your computer.</h1>
 		<div class="login">
-			<label>Key:</label><input id="linking-key" type="text" onkeyup="if (event.keyCode === 13) login()"><br>
-			<button onclick="login();">Login</button><br>
+			<label>Key: </label><input id="linking-key" type="text" onkeyup="if (event.keyCode === 13) login()"><br>
+			<div><button onclick="login();">Login</button></div>
 		</div>
 
 		<script>
