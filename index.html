@@ -431,6 +431,17 @@
 				<div class="chartText chartP" style="left:116px; top:757px">Some diacritics may be placed above a symbol with a descender, e.g.</div>
 			</div>
 			<div class="chartText" style="color:#d0d0d0; font-size:7px; left:233px; top: 775px">Typefaces: Duolos SIL (metatext); unitipa (symbols)</div>
+			<script>
+				var buttons = document.getElementById("chart").getElementsByTagName("button")
+				for (button of buttons) {
+					if (button.classList.contains("chartText")) continue;
+					let id = button.getAttribute("id")
+					let code = parseInt(id)
+					let codeStr = `${code}`.padStart(3,0)
+					button.setAttribute("onclick", `ipa('${codeStr}')`)
+					button.classList.add("chartButton")
+				}
+			</script>			
 		</div>
 
 		<svg
@@ -878,16 +889,6 @@
 	</div>
 	
 	<script>
-		var buttons = document.getElementById("chart").getElementsByTagName("button")
-		for (button of buttons) {
-			if (button.classList.contains("chartText")) continue;
-			let id = button.getAttribute("id")
-			let code = parseInt(id)
-			let codeStr = `${code}`.padStart(3,0)
-			button.setAttribute("onclick", `ipa('${codeStr}')`)
-			button.classList.add("chartButton")
-		}
-
 		function ipa(numstr) {
 			console.log("hi")
 			fetch("https://phonetics.ling.udel.edu/redirect.py", {
