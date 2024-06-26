@@ -114,9 +114,14 @@
 	</h2>
 	<div>
 		<h1>Main Menu</h1>
-		<h2><a href="/login">Login</a></h2>
+		<h2 id="login"><a href="/login">Login</a></h2>
+		<h2 id="logout"><a href="javascript:{localStorage.removeItem('key'); location.reload();}">Login</a></h2>
 		<h2><a href="/tutorial">Tutorial</a></h2>
 		<h2><a href="/docs">Documentation</a></h2>
+		<script>
+			if (localStorage.getItem("key")) document.getElementById("login" ).remove();
+			else                             document.getElementById("logout").remove();
+		</script>
 	</div>
 	<div>
 		<a id="hideInfo" href="javascript:hideInfo();">Hide info</a>
