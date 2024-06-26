@@ -15,7 +15,7 @@
 			background-color: #ccf;
 			border: 1px solid #bbd;
 			padding: 0 1em;
-			margin-top: 1em;
+			margin-bottom: 1em;
 		}
 		
 		.problem {
@@ -96,6 +96,7 @@
 			background-color: #00e48c;
 			border: 0;
 			padding: 4px;
+			margin: 5px 0;
 		}
 		.menu-button:hover {
 			background-color: #19c281;
@@ -119,7 +120,8 @@
 		<script>
 			var moveToUdelEdu = document.getElementById("move-to-udel.edu");
 			if (window.location.href == "https://phonetics.ling.udel.edu/index.html"
-			 || window.location.href == "https://phonetics.ling.udel.edu/") {
+			 || window.location.href == "https://phonetics.ling.udel.edu/"
+			 || window.location.href.startsWith("file")) {
 				moveToUdelEdu.remove();
 			}
 			else {
@@ -138,7 +140,7 @@
 			else                             document.getElementById("logout").remove();
 		</script>
 	</div>
-	<div>
+	<div style="padding: 11.8px 0;">
 		<a id="hideInfo" href="javascript:hideInfo();">Hide info</a>
 	</div>
 	<div class="info">
