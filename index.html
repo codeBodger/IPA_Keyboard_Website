@@ -65,7 +65,7 @@
 		svg {
 			/*height: 100vh;*/
 			width: 100%;
-			position: inherit;
+			position: absolute;
 			pointer-events: none;
 		}
 		tspan {
@@ -226,13 +226,13 @@
 
 	<div id="chart">
 		<div id="control-buttons" style="position:absolute">
-			<button>All</button>
-			<button>Pulmonic</button>
-			<button>Vowels</button>
-			<button>Diacritics</button>
+			<button onclick="whole();">All</button> <!-- Should call a function called `all`, but that apparently exists partially, so the button did nothing -->
+			<button onclick="pulmonic();">Pulmonic</button>
+			<button onclick="vowels();">Vowels</button>
+			<button onclick="diacritics();">Diacritics</button>
 		</div>
 
-		<div id="buttons">
+		<div id="buttons" style="position: inherit;">
 			<div class="pulmonic">
 				<button id="127z" style="width: 18.898005px; height: 17.929001px; left: 116.158px;   top:  84.646004px">Voiceless Bilabial     Plosive</button>
 				<button id="126z" style="width: 18.898005px; height: 17.929001px; left: 135.05801px; top:  84.646004px">Voiced    Bilabial     Plosive</button>
@@ -426,11 +426,9 @@
 			</script>			
 		</div>
 
-		<div id="tts">
-			<button style="left:120px;top:30px;width:375px;height:20px">THE INTERNATIONAL PHONETIC ALPHABET (revised to 2020)</button>
-			<button style="left:513px;top:54px;width:35px;height:13px">2020 IPA</button>
+		<div id="tts" style="position: inherit;">
 			<div class="pulmonic">
-				<button style="left:63.5px;top:54px;width:400px;height:14px">CONSONANTS (PULMONIC)</button>
+				<button style="left:63.5px;top:54px;width:485.6488px;height:14px">CONSONANTS (PULMONIC)</button>
 				<div class="chartTTS" style="top:68px;height:16.65px">
 					<button style="width:37.796px ;left:116.16px ">Bilabial</button>
 					<button style="width:44.1176px;left:153.956px">Labiodental</button>
@@ -488,7 +486,7 @@
 					Where symbols appear in pairs, the one to the right represents a rounded vowel.
 				</button>
 			</div>
-			<div class="diacritics" class="chartTTS" style="left:63.183998px;width:330.106px;height:0">
+			<div class="diacritics chartTTS" style="left:63.183998px;width:330.106px;height:0">
 				<button style="top:522px;height:14.22998px">DIACRITICS</button>
 				<button style="top:754.089512px;height:18px">Some diacritics may be placed above a symbol with a descender, for example Voiceless Velar Nasal</button>
 			</div>
@@ -503,7 +501,6 @@
 					<button style="left:482.36627px;width:69.421379px">CONTOUR</button>
 				</div>
 			</div>
-			<button style="left:200px;top:775px;width:210px;height:16px">Typefaces: Times New Roman (metatext); unitipa (symbols)</button>
 			<script>
 				var ttss = document.getElementById("tts").getElementsByTagName("button")
 				for (tts of ttss) {
@@ -511,8 +508,20 @@
 				}
 			</script>			
 		</div>
+		<button class="chartTTS" style="left:120px;top:30px;width:375px;height:20px">THE INTERNATIONAL PHONETIC ALPHABET (revised to 2020)</button>
+		<button class="chartTTS" style="left:513px;top:54px;width:35px;height:13px">2020 IPA</button>
+		<button class="chartTTS" style="left:200px;bottom:1px;width:210px;height:16px">Typefaces: Times New Roman (metatext); unitipa (symbols)</button>
 
-		<svg id="chart-svg" version="1.1" x="0px" y="0px" viewBox="0 0 612 792" style="enable-background:new 0 0 612 792;" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+		<svg id="title-svg" version="1.1" x="0px" y="0px" viewBox="0 0 612 70" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+			<text id="Title" xml:space="preserve" transform="matrix(0.74994604,0,0,0.74994604,-415.26942,115.64517) matrix(1.3333333,0,0,1.3333333,726.86611,-96.43813)">
+				<tspan id="tspan617" style="font-size:12.48px" x="0 7.6003199 16.62336 24.24864 27.846001 32.001839 41.024879 48.625198 56.250481 64.58712 73.610161 82.583282 90.183601 94.339439 103.36248 112.38552 121.35864 128.98392 132.498 139.43687 148.45992 157.48296 166.506 174.13129 181.7316 185.88744 194.22408 197.778 206.75111 214.3764 221.31528 230.33832 239.31145 247.42345 255.04872 262.64905 266.23199 270.38785 274.66849 280.20959 286.44958 289.91904 294.78625 300.32736 306.56735 310.17001 313.63943 319.87943 323.48401 329.724 335.96399 342.20401 348.444" y="0">THE INTERNATIONAL PHONETIC ALPHABET (revised to 2020)</tspan>
+			</text>
+			<path id="Weird_Symbols" d="m 507.253,59.282 h -0.246 l 0.558,0.626 0.559,-0.626 h -0.202 c 0.044,-0.306 0.312,-0.502 0.623,-0.478 h 0.036 c 0.506,0 0.705,0.383 0.722,0.947 0.017,0.588 -0.323,0.954 -0.722,0.946 -0.42,-0.008 -0.578,-0.209 -0.64,-0.514 h -0.75 c 0.124,0.702 0.641,1.114 1.374,1.115 0.83,10e-4 1.429,-0.693 1.429,-1.547 0,-0.913 -0.599,-1.547 -1.429,-1.547 h -0.074 -0.016 c -0.519,0.008 -1.222,0.371 -1.222,1.078 m 1.171,-1.913 h 0.076 c 1.315,0 2.381,1.067 2.381,2.381 0,1.314 -1.066,2.381 -2.381,2.381 -1.314,0 -2.381,-1.067 -2.381,-2.381 0,-1.289 1.027,-2.34 2.305,-2.381 m 0.003,-0.494 c -1.553,0.039 -2.802,1.313 -2.802,2.875 0,1.587 1.288,2.875 2.875,2.875 1.587,0 2.875,-1.288 2.875,-2.875 0,-1.587 -1.288,-2.875 -2.875,-2.875 h -0.073 m -7.607,4.734 h 0.859 v -1.381 h 0.261 c 0,0 -10e-4,-0.988 0,-1.143 l -0.057,-0.183 -0.181,-0.055 h -0.904 l -0.182,0.055 -0.057,0.183 c 10e-4,0.155 0,1.143 0,1.143 h 0.261 z m 0.846,-3.302 c 0,0.229 -0.187,0.416 -0.416,0.416 -0.23,0 -0.415,-0.187 -0.415,-0.416 0,-0.229 0.185,-0.416 0.415,-0.416 0.229,0 0.416,0.187 0.416,0.416 m -0.492,-0.938 h 0.076 c 1.315,0 2.381,1.067 2.381,2.381 0,1.314 -1.066,2.381 -2.381,2.381 -1.314,0 -2.381,-1.067 -2.381,-2.381 0,-1.289 1.027,-2.34 2.305,-2.381 m 0.003,-0.494 c -1.553,0.039 -2.802,1.313 -2.802,2.875 0,1.587 1.288,2.875 2.875,2.875 1.587,0 2.875,-1.288 2.875,-2.875 0,-1.587 -1.288,-2.875 -2.875,-2.875 h -0.073 m -5.747,2.321 c -0.188,-0.343 -0.51,-0.479 -0.883,-0.479 -0.543,0 -0.975,0.383 -0.975,1.033 0,0.66 0.407,1.032 0.994,1.032 0.377,0 0.698,-0.206 0.876,-0.52 l -0.414,-0.21 c -0.093,0.221 -0.233,0.288 -0.41,0.288 -0.307,0 -0.448,-0.255 -0.448,-0.59 0,-0.336 0.118,-0.591 0.448,-0.591 0.088,0 0.265,0.048 0.369,0.269 z m -1.924,0 c -0.188,-0.343 -0.51,-0.479 -0.883,-0.479 -0.543,0 -0.975,0.383 -0.975,1.033 0,0.66 0.406,1.032 0.994,1.032 0.377,0 0.698,-0.206 0.875,-0.52 l -0.413,-0.21 c -0.093,0.221 -0.234,0.288 -0.41,0.288 -0.307,0 -0.448,-0.255 -0.448,-0.59 0,-0.336 0.118,-0.591 0.448,-0.591 0.088,0 0.265,0.048 0.369,0.269 z m 0.043,-2.175 c 0.749,0 1.416,0.283 1.937,0.803 0.512,0.511 0.786,1.186 0.786,1.926 0,0.748 -0.265,1.405 -0.777,1.907 -0.539,0.529 -1.233,0.812 -1.946,0.812 -0.722,0 -1.398,-0.283 -1.919,-0.803 -0.52,-0.52 -0.813,-1.205 -0.813,-1.916 0,-0.721 0.293,-1.406 0.813,-1.935 0.512,-0.519 1.17,-0.794 1.919,-0.794 M 493.54,56.42 c -0.914,0 -1.718,0.337 -2.34,0.967 -0.639,0.648 -0.986,1.488 -0.986,2.364 0,0.885 0.338,1.706 0.978,2.345 0.639,0.638 1.47,0.985 2.348,0.985 0.877,0 1.727,-0.347 2.385,-0.995 0.621,-0.611 0.95,-1.423 0.95,-2.335 0,-0.904 -0.329,-1.725 -0.959,-2.355 -0.639,-0.64 -1.463,-0.976 -2.376,-0.976" />
+			<text id="2020-IPA" xml:space="preserve" transform="matrix(0.74994604,0,0,0.74994604,-415.26942,115.64517) matrix(1.3333333,0,0,1.3333333,1238.8834,-70.602397)">
+				<tspan id="tspan618" style="font-size:8.5px" x="0 4.25 8.5 12.75 17 19.452 22.282499 27.008499" y="0">2020 IPA</tspan>
+			</text>
+		</svg>
+		<svg id="chart-svg" version="1.1" x="0px" y="0px" viewBox="0 0 612 792" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
 			<g id="Vowel_Dots" class="vowels">
 				<path id="dot-cf" d="m 383.395,290.777 c 0,1.161 -0.941,2.102 -2.102,2.102 -1.164,0 -2.103,-0.941 -2.103,-2.102 0,-1.161 0.939,-2.101 2.103,-2.101 1.161,0 2.102,0.94 2.102,2.101" />
 				<path id="dot-cc" d="m 459.08,290.777 c 0,1.161 -0.941,2.102 -2.105,2.102 -1.163,0 -2.103,-0.941 -2.103,-2.102 0,-1.161 0.94,-2.101 2.103,-2.101 1.164,0 2.105,0.94 2.105,2.101" />
@@ -546,7 +555,6 @@
 				<path class="non-pulmonic" d="M 63.183998,272.367 H 301.96099 V 379.98701 H 63.183998 Z m 0,16.81601 H 301.961" />
 				<path class="pulmonic" d="M 116.158,230.276 V 67.822998 M 63.183998,84.646004 H 548.82599 M 63.183998,67.822998 H 548.826 V 230.276 H 63.183998 Z" />
 			</g>
-			<path id="Weird_Symbols" d="m 507.253,59.282 h -0.246 l 0.558,0.626 0.559,-0.626 h -0.202 c 0.044,-0.306 0.312,-0.502 0.623,-0.478 h 0.036 c 0.506,0 0.705,0.383 0.722,0.947 0.017,0.588 -0.323,0.954 -0.722,0.946 -0.42,-0.008 -0.578,-0.209 -0.64,-0.514 h -0.75 c 0.124,0.702 0.641,1.114 1.374,1.115 0.83,10e-4 1.429,-0.693 1.429,-1.547 0,-0.913 -0.599,-1.547 -1.429,-1.547 h -0.074 -0.016 c -0.519,0.008 -1.222,0.371 -1.222,1.078 m 1.171,-1.913 h 0.076 c 1.315,0 2.381,1.067 2.381,2.381 0,1.314 -1.066,2.381 -2.381,2.381 -1.314,0 -2.381,-1.067 -2.381,-2.381 0,-1.289 1.027,-2.34 2.305,-2.381 m 0.003,-0.494 c -1.553,0.039 -2.802,1.313 -2.802,2.875 0,1.587 1.288,2.875 2.875,2.875 1.587,0 2.875,-1.288 2.875,-2.875 0,-1.587 -1.288,-2.875 -2.875,-2.875 h -0.073 m -7.607,4.734 h 0.859 v -1.381 h 0.261 c 0,0 -10e-4,-0.988 0,-1.143 l -0.057,-0.183 -0.181,-0.055 h -0.904 l -0.182,0.055 -0.057,0.183 c 10e-4,0.155 0,1.143 0,1.143 h 0.261 z m 0.846,-3.302 c 0,0.229 -0.187,0.416 -0.416,0.416 -0.23,0 -0.415,-0.187 -0.415,-0.416 0,-0.229 0.185,-0.416 0.415,-0.416 0.229,0 0.416,0.187 0.416,0.416 m -0.492,-0.938 h 0.076 c 1.315,0 2.381,1.067 2.381,2.381 0,1.314 -1.066,2.381 -2.381,2.381 -1.314,0 -2.381,-1.067 -2.381,-2.381 0,-1.289 1.027,-2.34 2.305,-2.381 m 0.003,-0.494 c -1.553,0.039 -2.802,1.313 -2.802,2.875 0,1.587 1.288,2.875 2.875,2.875 1.587,0 2.875,-1.288 2.875,-2.875 0,-1.587 -1.288,-2.875 -2.875,-2.875 h -0.073 m -5.747,2.321 c -0.188,-0.343 -0.51,-0.479 -0.883,-0.479 -0.543,0 -0.975,0.383 -0.975,1.033 0,0.66 0.407,1.032 0.994,1.032 0.377,0 0.698,-0.206 0.876,-0.52 l -0.414,-0.21 c -0.093,0.221 -0.233,0.288 -0.41,0.288 -0.307,0 -0.448,-0.255 -0.448,-0.59 0,-0.336 0.118,-0.591 0.448,-0.591 0.088,0 0.265,0.048 0.369,0.269 z m -1.924,0 c -0.188,-0.343 -0.51,-0.479 -0.883,-0.479 -0.543,0 -0.975,0.383 -0.975,1.033 0,0.66 0.406,1.032 0.994,1.032 0.377,0 0.698,-0.206 0.875,-0.52 l -0.413,-0.21 c -0.093,0.221 -0.234,0.288 -0.41,0.288 -0.307,0 -0.448,-0.255 -0.448,-0.59 0,-0.336 0.118,-0.591 0.448,-0.591 0.088,0 0.265,0.048 0.369,0.269 z m 0.043,-2.175 c 0.749,0 1.416,0.283 1.937,0.803 0.512,0.511 0.786,1.186 0.786,1.926 0,0.748 -0.265,1.405 -0.777,1.907 -0.539,0.529 -1.233,0.812 -1.946,0.812 -0.722,0 -1.398,-0.283 -1.919,-0.803 -0.52,-0.52 -0.813,-1.205 -0.813,-1.916 0,-0.721 0.293,-1.406 0.813,-1.935 0.512,-0.519 1.17,-0.794 1.919,-0.794 M 493.54,56.42 c -0.914,0 -1.718,0.337 -2.34,0.967 -0.639,0.648 -0.986,1.488 -0.986,2.364 0,0.885 0.338,1.706 0.978,2.345 0.639,0.638 1.47,0.985 2.348,0.985 0.877,0 1.727,-0.347 2.385,-0.995 0.621,-0.611 0.95,-1.423 0.95,-2.335 0,-0.904 -0.329,-1.725 -0.959,-2.355 -0.639,-0.64 -1.463,-0.976 -2.376,-0.976" />
 			<g id="Chars" style="fill:#000000">
 				<g class="pulmonic">
 					<path id="path187" d="m 325.098,173.388 c 0.45,-0.233 0.682,-0.574 0.682,-1.039 0,-0.357 -0.155,-0.589 -0.465,-0.698 -0.093,-0.031 -0.186,-0.047 -0.264,-0.047 -0.109,0 -0.202,0.031 -0.31,0.078 -0.264,0.124 -0.403,0.341 -0.403,0.651 0,0.357 0.14,0.574 0.434,0.682 v 0.031 c -0.233,0.062 -0.434,0.093 -0.589,0.093 -0.357,0 -0.62,-0.217 -0.806,-0.636 -0.171,-0.341 -0.248,-0.822 -0.248,-1.457 0,-0.403 0,-0.62 0.016,-0.651 0.016,-0.031 0.062,-0.093 0.14,-0.171 l 0.264,-0.31 c 0.465,0.45 1.07,0.667 1.829,0.667 0.558,0 1.023,-0.078 1.411,-0.248 0.822,-0.372 1.24,-1.008 1.24,-1.891 0,-0.543 -0.186,-1.023 -0.558,-1.411 -0.388,-0.388 -0.977,-0.667 -1.767,-0.806 -0.806,-0.14 -1.302,-0.248 -1.504,-0.326 -0.481,-0.233 -0.729,-0.527 -0.729,-0.899 0,-0.202 0.062,-0.372 0.202,-0.543 0.264,-0.388 0.822,-0.574 1.643,-0.574 0.651,0 1.132,0.217 1.457,0.636 0.233,0.264 0.341,0.589 0.341,0.961 0,0.202 0.078,0.295 0.248,0.295 0.17,0 0.248,-0.078 0.248,-0.233 v -0.853 c 0,-0.698 -0.016,-1.07 -0.062,-1.116 -0.046,-0.046 -0.093,-0.062 -0.14,-0.062 -0.031,0 -0.109,0.031 -0.217,0.093 -0.078,0.047 -0.14,0.109 -0.217,0.202 -0.109,0.062 -0.171,0.093 -0.186,0.093 -0.124,-0.031 -0.233,-0.093 -0.31,-0.171 -0.403,-0.14 -0.775,-0.217 -1.132,-0.217 -1.659,0 -2.558,0.605 -2.713,1.814 v 0.155 c 0,0.264 0.093,0.527 0.264,0.822 0.248,0.388 0.589,0.651 1.039,0.791 0.543,0.186 1.178,0.326 1.876,0.434 0.372,0.078 0.698,0.233 0.977,0.465 0.264,0.233 0.403,0.512 0.403,0.837 0,0.109 -0.016,0.248 -0.062,0.388 -0.202,0.62 -0.791,0.93 -1.752,0.93 -1.178,0 -1.907,-0.651 -2.201,-1.969 l -0.031,-0.124 c -0.031,-0.171 -0.109,-0.248 -0.233,-0.248 -0.062,0 -0.124,0.016 -0.186,0.062 -0.062,0.046 -0.093,0.202 -0.093,0.434 v 2.48 c 0,0.713 0.062,1.271 0.202,1.659 0.233,0.682 0.651,1.07 1.24,1.147 h 0.171 c 0.293,0.001 0.572,-0.061 0.851,-0.2 z" />
@@ -855,13 +863,7 @@
 				</g>
 			</g>
 			<g id="Text" transform="matrix(0.74994604,0,0,0.74994604,-415.26942,115.64517)">
-				<text id="Title" xml:space="preserve" transform="matrix(1.3333333,0,0,1.3333333,726.86611,-96.43813)">
-					<tspan id="tspan617" style="font-size:12.48px" x="0 7.6003199 16.62336 24.24864 27.846001 32.001839 41.024879 48.625198 56.250481 64.58712 73.610161 82.583282 90.183601 94.339439 103.36248 112.38552 121.35864 128.98392 132.498 139.43687 148.45992 157.48296 166.506 174.13129 181.7316 185.88744 194.22408 197.778 206.75111 214.3764 221.31528 230.33832 239.31145 247.42345 255.04872 262.64905 266.23199 270.38785 274.66849 280.20959 286.44958 289.91904 294.78625 300.32736 306.56735 310.17001 313.63943 319.87943 323.48401 329.724 335.96399 342.20401 348.444" y="0">THE INTERNATIONAL PHONETIC ALPHABET (revised to 2020)</tspan>
-				</text>
 				<g style="font-size:8.5px">
-					<text id="text618" xml:space="preserve" transform="matrix(1.3333333,0,0,1.3333333,1238.8834,-70.602397)">
-						<tspan id="tspan618" x="0 4.25 8.5 12.75 17 19.452 22.282499 27.008499" y="0">2020 IPA</tspan>
-					</text>
 					<g class="pulmonic">
 						<text id="text619" xml:space="preserve" transform="matrix(1.3333333,0,0,1.3333333,640.80078,-70.602397)">
 							<tspan id="tspan619" x="0 5.678 11.8235 17.969 22.695 28.8405 34.986 41.0975 47.243 52.419498 57.1455 59.604 62.434502 67.1605 73.306 78.499496 86.064499 92.209999 98.355499 101.186 106.864" y="0">CONSONANTS (PULMONIC)</tspan>
@@ -1295,10 +1297,22 @@
 					</g>
 				</g>
 			</g>
-			<text id="Font_Info" xml:space="preserve" transform="matrix(0.99992803,0,0,0.99992803,231.12553,782.78753)" style="fill:#d0d0d0">
+		</svg>
+		<svg id="font-info-svg" version="1.1" x="0px" y="0px" viewBox="0 0 612 792" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+			<text id="Font_Info" xml:space="preserve" transform="matrix(0.99992803,0,0,0.99992803,231.12553,782.78753)">
 				<tspan id="tspan614" style="font-size:7px;writing-mode:lr-tb;fill:#d0d0d0;fill-rule:nonzero;stroke:none" x="-11.385" y="0">Typefaces: Times New Roman (metatext); unitipa (symbols)</tspan>
 			</text>
 		</svg>
+
+		<script id="fix-chart-size">
+			function fixChartSize() {
+				const chartRect = document.getElementById("chart-svg").getBoundingClientRect();
+				const chartStyle = document.getElementById("chart").style;
+				chartStyle.width  = `${chartRect.width }px`;
+				chartStyle.height = `${chartRect.height}px`;
+			}
+			fixChartSize();
+		</script>
 	</div>
 
 <!-- 	<div class="info">
@@ -1579,10 +1593,60 @@
 		}
 	</script>
 
-	<script>
+	<script id="hide-show">
 		function hide(class_name) {
 			for (let x of document.getElementsByClassName(class_name))
 				x.style.visibility = 'hidden';
+		}
+		function show(class_name) {
+			for (let x of document.getElementsByClassName(class_name))
+				x.style.visibility = 'visible';
+		}
+	</script>
+
+	<script id="certain-sub-charts">
+		const joinRect  = (rect) => `${rect.x ?? DEFAULT_RECT.x} ${rect.y ?? DEFAULT_RECT.y} ${rect.width ?? DEFAULT_RECT.width} ${rect.height ?? DEFAULT_RECT.height}`;
+		const splitRect = (rect) => {
+			rect = rect.split(" ");
+			return { x: rect[0], y: rect[1], width: rect[2], height: rect[3] };
+		};
+
+		const SUB_CHARTS = ["pulmonic", "non-pulmonic", "other-symbols", "vowels", "diacritics", "suprasegmentals", "tones"];
+		const DEFAULT_RECT = splitRect(document.getElementById("chart-svg").getAttribute("viewBox"));
+
+		function whole() { // Should be called `all`, but that apparently exists partially, so the button did nothing
+			adjust(SUB_CHARTS, { });
+		}
+
+		function pulmonic() {
+			adjust(["pulmonic"], { height: 268.1333312988281 });
+		}
+
+		function vowels() {
+			adjust(["vowels"], { y: 204.683349609375, height: 253.2166748046875 });
+		}
+
+		function diacritics() {
+			adjust(["diacritics"], { y: 468.26666259765625, height: 323.7333068847656 });
+		}
+
+		// let x = document.getElementById("text619").getBoundingClientRect().y; diacritics(); let y = document.getElementById("asdf").getBoundingClientRect().y; console.log(500+(y-x));
+		// let x = document.getElementById("text624").getBoundingClientRect().bottom; vowels(); let y = document.getElementById("text627").getBoundingClientRect().bottom; console.log(DEFAULT_RECT.height-x+y);
+
+		function adjust(include, newRect) {
+			newRect = splitRect(joinRect(newRect));
+			document.getElementById("chart-svg").setAttribute("viewBox", joinRect(newRect));
+			fixChartSize();
+
+			document.getElementById("font-info-svg").setAttribute("viewBox", joinRect({ y: DEFAULT_RECT.height - newRect.height }));
+
+			document.getElementById("buttons").style.top = `-${newRect.y}px`;
+			document.getElementById("tts").style.top = `-${newRect.y}px`;
+
+			SUB_CHARTS.forEach((sub_chart) => {
+				if (include.includes(sub_chart)) show(sub_chart);
+				else hide(sub_chart);
+			});
 		}
 	</script>
 </body>
