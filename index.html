@@ -35,11 +35,22 @@
 			margin: 0;
 		}
 
+		button {
+			background-color: #c693ff;
+			cursor: pointer;
+			border-width: 0;
+			pointer-events: initial;
+		}
+		button:hover {
+			background-color: #e2c7ff;
+		}
+		button:active {
+			background-color: #b0f;
+		}
+
 		.chartButton {
 			position: absolute;
 			background-color: #00f6;
-			cursor: pointer;
-			border-width: 0;
 			font-size: 1px;
 			color: #0000;
 		}
@@ -57,7 +68,7 @@
 		}
 		button.chartTTS {
 			background-color: #0000;
-			border-width: 0;
+			cursor: default;
 			font-size: 1px;
 			color: #0000;
 		}
@@ -85,7 +96,6 @@
 			min-width: 20vw;
 			font-size: 20px;
 			background-color: #00e48c;
-			border: 0;
 			padding: 4px;
 			margin: 5px 0;
 		}
@@ -188,13 +198,76 @@
 		</div>
 	</noscript>
 
+	<script id="helpful">
+		function absolutePosition(element) {
+			const elemRect = element.getBoundingClientRect();
+			const bodyRect = document.body.getBoundingClientRect();
+			return {
+				left: elemRect.left - bodyRect.left,
+				right: elemRect.right - bodyRect.right,
+				top: elemRect.top - bodyRect.top,
+				bottom: elemRect.bottom - bodyRect.bottom,
+			}
+		}
+		function contentDimensions(element) {
+			const rect = element.getBoundingClientRect();
+			const style = getComputedStyle(element);
+			const absPos = absolutePosition(element);
+			const paddingLeft = parseFloat(style.paddingLeft);
+			const paddingRight = parseFloat(style.paddingRight);
+			const paddingTop = parseFloat(style.paddingTop);
+			const paddingBottom = parseFloat(style.paddingBottom);
+			const borderLeft = parseFloat(style.borderLeftWidth);
+			const borderRight = parseFloat(style.borderRightWidth);
+			const borderTop = parseFloat(style.borderTopWidth);
+			const borderBottom = parseFloat(style.borderBottomWidth);
+			const leftOffset = paddingLeft + borderLeft;
+			const rightOffset = paddingRight + borderRight;
+			const topOffset = paddingTop + borderTop;
+			const bottomOffset = paddingBottom + borderBottom;
+			return {
+				width: rect.width - leftOffset - rightOffset,
+				height: rect.height - topOffset - bottomOffset,
+				left: absPos.left + leftOffset,
+				right: absPos.right + rightOffset,
+				top: absPos.top + topOffset,
+				bottom: absPos.bottom + bottomOffset,
+			};
+		}
+	</script>
+
 	<div id="copy-paste">
-		<textarea id="copy-paste-area" contenteditable="true" spellcheck="false" autocorrect="off" autocomplete="off" autocapitalize="none"></textarea>
-		<button id="copy" onclick="copy()">Copy</button>
+		<textarea id="copy-paste-area" style="box-sizing: border-box; width: 100%; height: 5.33em; font-family: 'Times New Roman', Times, serif;"
+			contenteditable="true"
+			spellcheck="false"
+			autocorrect="off"
+			autocomplete="off"
+			autocapitalize="none"
+			onmousemove="fixCopyPaste()" onmouseup="fixCopyPaste()"></textarea>
+		<button id="copy" style="position: absolute;" onclick="copy()">Copy</button>
 		<script>
+			function fixCopyPaste() {
+				const cpArea = document.getElementById("copy-paste-area");
+				const cpButn = document.getElementById("copy");
+				cpArea.style.paddingRight = "revert";
+				const oldPaddingRight = parseFloat(getComputedStyle(cpArea).paddingRight);
+				const newPaddingRight = cpButn.getBoundingClientRect().width + 2 * oldPaddingRight;
+				cpArea.style.paddingRight = `${newPaddingRight}px`;
+
+				const cpAreaDims = contentDimensions(cpArea);
+
+				cpButn.style.height = `${cpAreaDims.height}px`;
+				cpButn.style.top = `${cpAreaDims.top}px`;
+				cpButn.style.left = `${cpAreaDims.left + cpAreaDims.width + oldPaddingRight}px`;
+			}
+
 			if (localStorage.getItem("key")) document.getElementById("copy-paste").remove();
 			else {
 				const cpArea = document.getElementById("copy-paste-area");
+
+				fixCopyPaste();
+				// new ResizeObserver(fixCopyPaste).observe(cpArea);
+
 				function getSRange() {
 					return [cpArea.selectionStart, cpArea.selectionEnd]
 				}
@@ -224,18 +297,18 @@
 
 	<br>
 
-	<div id="chart">
-		<div id="control-buttons" style="position:absolute">
-			<button onclick="whole();">All</button> <!-- Should call a function called `all`, but that apparently exists partially, so the button did nothing -->
-			<button onclick="pulmonic();">Pulmonic</button>
-			<button onclick="nonPulmonic();">Non-Pulmonic</button>
-			<button onclick="otherSymbols();">Other Symbols</button>
-			<button onclick="vowels();">Vowels</button>
-			<button onclick="diacritics();">Diacritics</button>
-			<button onclick="suprasegmentals();">Suprasegmentals</button>
-			<button onclick="tones();">Tones and Word Accents</button>
-		</div>
+	<div id="control-buttons" style="position: relative; margin-bottom: -20px; z-index: 1;">
+		<button onclick="whole();">All</button><br> <!-- Should call a function called `all`, but that apparently exists partially, so the button did nothing -->
+		<button onclick="pulmonic();">Pulmonic</button><br>
+		<button onclick="nonPulmonic();">Non-Pulmonic</button>
+		<button onclick="vowels();">Vowels</button><br>
+		<button onclick="otherSymbols();">Other Symbols</button>
+		<button onclick="suprasegmentals();">Suprasegmentals</button><br>
+		<button onclick="diacritics();">Diacritics</button>
+		<button onclick="tones();">Tones and Word Accents</button>
+	</div>
 
+	<div id="chart">
 		<div id="buttons" style="position: inherit;">
 			<div class="pulmonic">
 				<button id="127z" style="width: 18.898005px; height: 17.929001px; left: 116.158px;   top:  84.646004px">Voiceless Bilabial     Plosive</button>
@@ -430,7 +503,7 @@
 			</script>			
 		</div>
 
-		<div id="tts" style="position: inherit;">
+		<div id="tts" style="position: inherit; pointer-events: none;">
 			<div class="pulmonic">
 				<button style="left:63.5px;top:54px;width:485.6488px;height:14px">CONSONANTS (PULMONIC)</button>
 				<div class="chartTTS" style="top:68px;height:16.65px">
@@ -1312,7 +1385,7 @@
 			function fixChartSize() {
 				const chartRect = document.getElementById("chart-svg").getBoundingClientRect();
 				const chartStyle = document.getElementById("chart").style;
-				chartStyle.width  = `${chartRect.width }px`;
+				chartStyle.width  = `${chartRect.width}px`;
 				chartStyle.height = `${chartRect.height}px`;
 			}
 			fixChartSize();
