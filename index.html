@@ -1713,7 +1713,7 @@
 		}
 
 		function vowels() {
-			adjust(["vowels"], { y: 204.683349609375, height: 253.2166748046875 });
+			adjust(["vowels"], { x: 261.6833190917969, y: 204.683349609375, height: 253.2166748046875 });
 		}
 
 		function diacritics() {
@@ -1721,15 +1721,16 @@
 		}
 
 		function suprasegmentals() {
-			adjust(["suprasegmentals"], { y: 389.4166564941406, height: 245.0833282470703 })
+			adjust(["suprasegmentals"], { x: 349.5500183105469, y: 389.4166564941406, height: 245.0833282470703 })
 		}
 
 		function tones() {
-			adjust(["tones"], { y: 563.2166442871094, height: 216.25001525878906 })
+			adjust(["tones"], { x: 366.6000061035156, y: 563.2166442871094, height: 216.25001525878906 })
 		}
 
 		// x stays the same, y changes
-		// let x = document.getElementById("text619").getBoundingClientRect().y; diacritics(); let y = document.getElementById("asdf").getBoundingClientRect().y; console.log(500+(y-x));
+		// let x = document.getElementById("text619").getBoundingClientRect().y; let y = document.getElementById("asdf").getBoundingClientRect().y; console.log(y-x);
+		// let x = document.getElementById("text619").getBoundingClientRect().x; let y = document.getElementById("asdf").getBoundingClientRect().x; console.log(y-x);
 		// let x = document.getElementById("text624").getBoundingClientRect().bottom; vowels(); let y = document.getElementById("text627").getBoundingClientRect().bottom; console.log(DEFAULT_RECT.height-x+y);
 
 		function adjust(include, newRect) {
@@ -1739,7 +1740,9 @@
 
 			document.getElementById("font-info-svg").setAttribute("viewBox", joinRect({ y: DEFAULT_RECT.height - newRect.height }));
 
+			document.getElementById("buttons").style.left = `-${newRect.x}px`;
 			document.getElementById("buttons").style.top = `-${newRect.y}px`;
+			document.getElementById("tts").style.left = `-${newRect.x}px`;
 			document.getElementById("tts").style.top = `-${newRect.y}px`;
 
 			SUB_CHARTS.forEach((sub_chart) => {
