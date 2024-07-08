@@ -117,18 +117,21 @@
 		WARNING: The backend to this site is currently down as I am in the process of moving it from AWS to a UD server.
 	</h2> -->
 
-	<h2 id="move-to-udel.edu" style="color: red; visibility: hidden; height: 0;">
+	<h2 id="move-to-udel.edu" style="color: red; visibility: hidden; height: 0; margin: 0px;">
 		WARNING: This site no longer works here.  Click <a href="https://phonetics.ling.udel.edu/">here</a> for the new location.
 		<script>
 			var moveToUdelEdu = document.getElementById("move-to-udel.edu");
-			if (window.location.href == "https://phonetics.ling.udel.edu/index.html"
+			if ( false
+			 || window.location.href == "https://phonetics.ling.udel.edu/index.html"
 			 || window.location.href == "https://phonetics.ling.udel.edu/"
-			 || window.location.href.startsWith("file")) {
+			 || window.location.href.startsWith("file")
+		 	) {
 				moveToUdelEdu.remove();
 			}
 			else {
 				moveToUdelEdu.style.visibility = 'visible';
 				moveToUdelEdu.style.height = 'auto';
+				moveToUdelEdu.style.padding = '2px';
 			}
 		</script>
 	</h2>
