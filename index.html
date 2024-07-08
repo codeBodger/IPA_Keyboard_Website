@@ -1698,35 +1698,56 @@
 
 		function whole() { // Should be called `all`, but that apparently exists partially, so the button did nothing
 			adjust(SUB_CHARTS, { });
+			localStorage.setItem("subchart", "all");
 		}
 
 		function pulmonic() {
 			adjust(["pulmonic"], { height: 268.1333312988281 });
+			localStorage.setItem("subchart", "pulmonic");
 		}
 
 		function nonPulmonic() {
 			adjust(["non-pulmonic"], { y: 204.40000915527344, height: 202.53334045410156 })
+			localStorage.setItem("subchart", "nonPulmonic");
 		}
 
 		function otherSymbols() {
 			adjust(["other-symbols"], { y: 339.8666687011719, height: 196.4666748046875 })
+			localStorage.setItem("subchart", "otherSymbols");
 		}
 
 		function vowels() {
 			adjust(["vowels"], { x: 261.6833190917969, y: 204.683349609375, height: 253.2166748046875 });
+			localStorage.setItem("subchart", "vowels");
 		}
 
 		function diacritics() {
 			adjust(["diacritics"], { y: 468.26666259765625, height: 323.7333068847656 });
+			localStorage.setItem("subchart", "diacritics");
 		}
 
 		function suprasegmentals() {
 			adjust(["suprasegmentals"], { x: 349.5500183105469, y: 389.4166564941406, height: 245.0833282470703 })
+			localStorage.setItem("subchart", "suprasegmentals");
 		}
 
 		function tones() {
 			adjust(["tones"], { x: 366.6000061035156, y: 563.2166442871094, height: 216.25001525878906 })
+			localStorage.setItem("subchart", "tones");
 		}
+
+		const options = {
+			"all": whole,
+			"pulmonic": pulmonic,
+			"nonPulmonic": nonPulmonic,
+			"otherSymbols": otherSymbols,
+			"vowels": vowels,
+			"diacritics": diacritics,
+			"suprasegmentals": suprasegmentals,
+			"tones": tones,
+		};
+
+		(options[localStorage.getItem("subchart") || "all"] || whole)();
 
 		// x stays the same, y changes
 		// let x = document.getElementById("text619").getBoundingClientRect().y; let y = document.getElementById("asdf").getBoundingClientRect().y; console.log(y-x);
