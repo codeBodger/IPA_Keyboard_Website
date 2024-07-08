@@ -246,7 +246,7 @@
 			autocorrect="off"
 			autocomplete="off"
 			autocapitalize="none"
-			onmousemove="fixCopyPaste()" onmouseup="fixCopyPaste()"></textarea>
+			></textarea>
 		<button id="copy" style="position: absolute;" onclick="copy()">Copy</button>
 		<script>
 			function fixCopyPaste() {
@@ -269,7 +269,9 @@
 				const cpArea = document.getElementById("copy-paste-area");
 
 				fixCopyPaste();
-				// new ResizeObserver(fixCopyPaste).observe(cpArea);
+				const copyPasteFixer = new ResizeObserver(fixCopyPaste);
+				copyPasteFixer.observe(cpArea);
+				copyPasteFixer.observe(document.body);
 
 				function getSRange() {
 					return [cpArea.selectionStart, cpArea.selectionEnd]
