@@ -228,8 +228,12 @@
 		<div id="control-buttons" style="position:absolute">
 			<button onclick="whole();">All</button> <!-- Should call a function called `all`, but that apparently exists partially, so the button did nothing -->
 			<button onclick="pulmonic();">Pulmonic</button>
+			<button onclick="nonPulmonic();">Non-Pulmonic</button>
+			<button onclick="otherSymbols();">Other Symbols</button>
 			<button onclick="vowels();">Vowels</button>
 			<button onclick="diacritics();">Diacritics</button>
+			<button onclick="suprasegmentals();">Suprasegmentals</button>
+			<button onclick="tones();">Tones and Word Accents</button>
 		</div>
 
 		<div id="buttons" style="position: inherit;">
@@ -1622,6 +1626,14 @@
 			adjust(["pulmonic"], { height: 268.1333312988281 });
 		}
 
+		function nonPulmonic() {
+			adjust(["non-pulmonic"], { y: 204.40000915527344, height: 202.53334045410156 })
+		}
+
+		function otherSymbols() {
+			adjust(["other-symbols"], { y: 339.8666687011719, height: 196.4666748046875 })
+		}
+
 		function vowels() {
 			adjust(["vowels"], { y: 204.683349609375, height: 253.2166748046875 });
 		}
@@ -1630,6 +1642,15 @@
 			adjust(["diacritics"], { y: 468.26666259765625, height: 323.7333068847656 });
 		}
 
+		function suprasegmentals() {
+			adjust(["suprasegmentals"], { y: 389.4166564941406, height: 245.0833282470703 })
+		}
+
+		function tones() {
+			adjust(["tones"], { y: 563.2166442871094, height: 216.25001525878906 })
+		}
+
+		// x stays the same, y changes
 		// let x = document.getElementById("text619").getBoundingClientRect().y; diacritics(); let y = document.getElementById("asdf").getBoundingClientRect().y; console.log(500+(y-x));
 		// let x = document.getElementById("text624").getBoundingClientRect().bottom; vowels(); let y = document.getElementById("text627").getBoundingClientRect().bottom; console.log(DEFAULT_RECT.height-x+y);
 
