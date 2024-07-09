@@ -79,7 +79,7 @@
 
 		svg {
 			/*height: 100vh;*/
-			width: 100%;
+			width: calc(var(--chart-scale) * 100%);
 			position: absolute;
 			pointer-events: none;
 		}
@@ -1391,24 +1391,18 @@
 			</text>
 		</svg>
 
-		<script id="fix-chart-size">
-			function scaleSVG() {
-				for (let svg of document.getElementsByTagName("svg"))
-					svg.style.width = `${100 * parseFloat(getComputedStyle(document.body).getPropertyValue("--chart-scale"))}%`;
-			}
-			function unscaleSVG() {
-				for (let svg of document.getElementsByTagName("svg"))
-					svg.style.width = "100%";
-			}
+		<script id="fix-chart-size" style="width: 100lvmax;">
 			function fixChartSize() {
-				unscaleSVG();
-				const chartRect = () => document.getElementById("chart-svg").getBoundingClientRect();
-				const chartStyle = document.getElementById("chart").style;
-				chartStyle.width  = `${chartRect().width}px`;
-				scaleSVG();
-				chartStyle.height = `${chartRect().height}px`;
+				const chart = document.getElementById("chart");
+				const maxDim = parseFloat(getComputedStyle(document.getElementById("fix-chart-size")).width);
+				const currentChartWidth = parseFloat(getComputedStyle(chart).width);
+				document.querySelector(':root').style.setProperty("--chart-scale", `${maxDim / currentChartWidth}`);
+				const chartRect = document.getElementById("chart-svg").getBoundingClientRect();
+				chart.style.height = `${chartRect.height}px`;
 			}
 			fixChartSize();
+			const chartSizeFixer = new ResizeObserver(fixChartSize);
+			chartSizeFixer.observe(document.body);
 		</script>
 	</div>
 
