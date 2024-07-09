@@ -307,7 +307,7 @@
 
 	<br>
 
-	<div id="control-buttons" style="position: relative; margin-bottom: -20px; z-index: 1;">
+	<div id="control-buttons" style="position: relative; z-index: 1;">
 		<button onclick="whole();">All</button><br> <!-- Should call a function called `all`, but that apparently exists partially, so the button did nothing -->
 		<button onclick="pulmonic();">Pulmonic</button><br>
 		<button onclick="nonPulmonic();">Non-Pulmonic</button>
@@ -599,7 +599,7 @@
 		<button class="chartTTS" style="zoom:var(--chart-scale);left:513px;top:54px;width:35px;height:13px;margin:0">2020 IPA</button>
 		<button class="chartTTS" style="zoom:var(--chart-scale);left:200px;bottom:1px;width:210px;height:16px;margin:0">Typefaces: Times New Roman (metatext); unitipa (symbols)</button>
 
-		<svg id="title-svg" version="1.1" x="0px" y="0px" viewBox="0 0 612 70" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+		<svg id="title-svg" version="1.1" x="0px" y="0px" viewBox="0 20 612 50" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
 			<text id="Title" xml:space="preserve" transform="matrix(0.74994604,0,0,0.74994604,-415.26942,115.64517) matrix(1.3333333,0,0,1.3333333,726.86611,-96.43813)">
 				<tspan id="tspan617" style="font-size:12.48px" x="0 7.6003199 16.62336 24.24864 27.846001 32.001839 41.024879 48.625198 56.250481 64.58712 73.610161 82.583282 90.183601 94.339439 103.36248 112.38552 121.35864 128.98392 132.498 139.43687 148.45992 157.48296 166.506 174.13129 181.7316 185.88744 194.22408 197.778 206.75111 214.3764 221.31528 230.33832 239.31145 247.42345 255.04872 262.64905 266.23199 270.38785 274.66849 280.20959 286.44958 289.91904 294.78625 300.32736 306.56735 310.17001 313.63943 319.87943 323.48401 329.724 335.96399 342.20401 348.444" y="0">THE INTERNATIONAL PHONETIC ALPHABET (revised to 2020)</tspan>
 			</text>
@@ -608,7 +608,7 @@
 				<tspan id="tspan618" style="font-size:8.5px" x="0 4.25 8.5 12.75 17 19.452 22.282499 27.008499" y="0">2020 IPA</tspan>
 			</text>
 		</svg>
-		<svg id="chart-svg" version="1.1" x="0px" y="0px" viewBox="0 0 612 792" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+		<svg id="chart-svg" version="1.1" x="0px" y="0px" viewBox="0 20 612 772" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
 			<g id="Vowel_Dots" class="vowels">
 				<path id="dot-cf" d="m 383.395,290.777 c 0,1.161 -0.941,2.102 -2.102,2.102 -1.164,0 -2.103,-0.941 -2.103,-2.102 0,-1.161 0.939,-2.101 2.103,-2.101 1.161,0 2.102,0.94 2.102,2.101" />
 				<path id="dot-cc" d="m 459.08,290.777 c 0,1.161 -0.941,2.102 -2.105,2.102 -1.163,0 -2.103,-0.941 -2.103,-2.102 0,-1.161 0.94,-2.101 2.103,-2.101 1.164,0 2.105,0.94 2.105,2.101" />
@@ -1385,7 +1385,7 @@
 				</g>
 			</g>
 		</svg>
-		<svg id="font-info-svg" version="1.1" x="0px" y="0px" viewBox="0 0 612 792" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+		<svg id="font-info-svg" version="1.1" x="0px" y="0px" viewBox="0 20 612 772" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
 			<text id="Font_Info" xml:space="preserve" transform="matrix(0.99992803,0,0,0.99992803,231.12553,782.78753)">
 				<tspan id="tspan614" style="font-size:7px;writing-mode:lr-tb;fill:#d0d0d0;fill-rule:nonzero;stroke:none" x="-11.385" y="0">Typefaces: Times New Roman (metatext); unitipa (symbols)</tspan>
 			</text>
@@ -1701,7 +1701,7 @@
 		const joinRect  = (rect) => `${rect.x ?? DEFAULT_RECT.x} ${rect.y ?? DEFAULT_RECT.y} ${rect.width ?? DEFAULT_RECT.width} ${rect.height ?? DEFAULT_RECT.height}`;
 		const splitRect = (rect) => {
 			rect = rect.split(" ");
-			return { x: rect[0], y: rect[1], width: rect[2], height: rect[3] };
+			return { x: parseFloat(rect[0]), y: parseFloat(rect[1]), width: parseFloat(rect[2]), height: parseFloat(rect[3]) };
 		};
 
 		const SUB_CHARTS = ["pulmonic", "non-pulmonic", "other-symbols", "vowels", "diacritics", "suprasegmentals", "tones"];
@@ -1713,37 +1713,37 @@
 		}
 
 		function pulmonic() {
-			adjust(["pulmonic"], { height: 268.1333312988281 });
+			adjust(["pulmonic"], { height: 248.1333312988281 });
 			localStorage.setItem("subchart", "pulmonic");
 		}
 
 		function nonPulmonic() {
-			adjust(["non-pulmonic"], { y: 204.40000915527344, height: 202.53334045410156 })
+			adjust(["non-pulmonic"], { y: 224.40000915527344, height: 182.53334045410156 })
 			localStorage.setItem("subchart", "nonPulmonic");
 		}
 
 		function otherSymbols() {
-			adjust(["other-symbols"], { y: 339.8666687011719, height: 196.4666748046875 })
+			adjust(["other-symbols"], { y: 359.8666687011719, height: 176.4666748046875 })
 			localStorage.setItem("subchart", "otherSymbols");
 		}
 
 		function vowels() {
-			adjust(["vowels"], { x: 261.6833190917969, y: 204.683349609375, height: 253.2166748046875 });
+			adjust(["vowels"], { x: 261.6833190917969, y: 224.683349609375, height: 233.2166748046875 });
 			localStorage.setItem("subchart", "vowels");
 		}
 
 		function diacritics() {
-			adjust(["diacritics"], { y: 468.26666259765625, height: 323.7333068847656 });
+			adjust(["diacritics"], { y: 488.26666259765625, height: 303.7333068847656 });
 			localStorage.setItem("subchart", "diacritics");
 		}
 
 		function suprasegmentals() {
-			adjust(["suprasegmentals"], { x: 349.5500183105469, y: 389.4166564941406, height: 245.0833282470703 })
+			adjust(["suprasegmentals"], { x: 349.5500183105469, y: 409.4166564941406, height: 225.0833282470703 })
 			localStorage.setItem("subchart", "suprasegmentals");
 		}
 
 		function tones() {
-			adjust(["tones"], { x: 366.6000061035156, y: 563.2166442871094, height: 216.25001525878906 })
+			adjust(["tones"], { x: 366.6000061035156, y: 583.2166442871094, height: 196.25001525878906 })
 			localStorage.setItem("subchart", "tones");
 		}
 
@@ -1770,7 +1770,7 @@
 			document.getElementById("chart-svg").setAttribute("viewBox", joinRect(newRect));
 			fixChartSize();
 
-			document.getElementById("font-info-svg").setAttribute("viewBox", joinRect({ y: DEFAULT_RECT.height - newRect.height }));
+			document.getElementById("font-info-svg").setAttribute("viewBox", joinRect({ y: DEFAULT_RECT.y + DEFAULT_RECT.height - newRect.height }));
 
 			document.getElementById("buttons").style.left = `-${newRect.x}px`;
 			document.getElementById("buttons").style.top = `-${newRect.y}px`;
