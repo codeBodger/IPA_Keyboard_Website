@@ -1391,12 +1391,12 @@
 			</text>
 		</svg>
 
-		<script id="fix-chart-size" style="width: 100lvmax;">
+		<script id="fix-chart-size">
 			function fixChartSize() {
 				const chart = document.getElementById("chart");
-				const maxDim = parseFloat(getComputedStyle(document.getElementById("fix-chart-size")).width);
+				const bodyWidth = parseFloat(getComputedStyle(document.body).width);
 				const currentChartWidth = parseFloat(getComputedStyle(chart).width);
-				document.querySelector(':root').style.setProperty("--chart-scale", `${maxDim / currentChartWidth}`);
+				document.querySelector(':root').style.setProperty("--chart-scale", `${bodyWidth / currentChartWidth}`);
 				const chartRect = document.getElementById("chart-svg").getBoundingClientRect();
 				chart.style.height = `${chartRect.height}px`;
 			}
