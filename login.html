@@ -9,12 +9,22 @@
 				margin: auto;
 				width: fit-content;
 			}
+
+			.info {
+				background-color: #ccf;
+				border: 1px solid #bbd;
+				padding: 0 1em;
+				margin-top: 5px;
+				margin-bottom: 1em;
+			}
+			
 			label {
 				font-size: 24px;
 			}
 			button,
 			input {
 				font-size: 20px;
+				margin: 5px;
 			}
 		</style>
 	</head>
@@ -83,6 +93,15 @@
 				  });
 			}
 		</script>
+
+		<div class="info">
+			<div class="text">
+				<p>Queries and comments can be directed to <a id="email" href="/">rnackerm+ipa@udel.edu</a></p>
+				<script>
+					document.getElementById("email").setAttribute("href", "mailto:rnackerm+ipa@udel.edu");
+				</script>
+			</div>
+		</div>
 
 		<div><p>© 2024 by <a href="https://github.com/codeBodger">Rowan Ackerman</a></p></div>
 	</body>
