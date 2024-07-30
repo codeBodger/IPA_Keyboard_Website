@@ -5,6 +5,8 @@
 	<meta charset='utf-8'>
 	<title>IPA Keyboard</title>
 
+	<base href="file:///C:/Users/rnack/OneDrive/Desktop/Summer Scholars/IPA_Keyboard_Website">
+
 	<style>
 		:root {
 			--chart-scale: 1.5;
@@ -118,18 +120,18 @@
 </head>
 
 <body>
-	<!-- <h2 style="color: red">
+	<!-- <h2 class="problem">
 		WARNING: The backend to this site is currently down as I am in the process of moving it from AWS to a UD server.
 	</h2> -->
 
-	<h2 id="move-to-udel.edu" style="color: red; visibility: hidden; height: 0; margin: 0px;">
-		WARNING: This site no longer works here.  Click <a href="https://phonetics.ling.udel.edu/">here</a> for the new location.
+	<h2 id="move-to-udel.edu" style="visibility: hidden; height: 0; margin: 0px;">
+		To use this site to copy and paste, you can continue here. &nbsp;To use it with a client, click <a href="https://phonetics.ling.udel.edu/">here</a>. &nbsp;<a href="javascript:dismiss()">Dismiss</a>
 		<script>
 			var moveToUdelEdu = document.getElementById("move-to-udel.edu");
 			if ( false
-			 || window.location.href == "https://phonetics.ling.udel.edu/index.html"
-			 || window.location.href == "https://phonetics.ling.udel.edu/"
-			 || window.location.href.startsWith("file")
+			 || window.location.href.startsWith("https://phonetics.ling.udel.edu")
+			 || parseInt(localStorage.getItem("dismiss-date")) + 30*24*60*60*1000 > Date.now() 
+			//  || window.location.href.startsWith("file")
 		 	) {
 				moveToUdelEdu.remove();
 			}
@@ -138,17 +140,38 @@
 				moveToUdelEdu.style.height = 'auto';
 				moveToUdelEdu.style.padding = '20px';
 			}
+
+			function dismiss() {
+				localStorage.setItem("dismiss-date", Date.now());
+				moveToUdelEdu.remove();
+			}
 		</script>
 	</h2>
 
 	<div id="menu" style="float: right; margin-right: 10px; width: fit-content;">
-		<button id="login" class="menu-button" onclick="location.assign('/login');">Login</button>
+		<button id="login" class="menu-button" onclick="setLocation('/login');">Login</button>
 		<button id="logout" class="menu-button" onclick="localStorage.removeItem('key'); location.reload();">Logout</button>
-		<button class="menu-button" onclick="location.assign('/tutorial')">Tutorial</button>
-		<button class="menu-button" onclick="location.assign('/docs')">Documentation</button>
+		<button class="menu-button" onclick="setLocation('/tutorial')">Tutorial</button>
+		<button class="menu-button" onclick="setLocation('/docs')">Documentation</button>
 		<script>
 			if (localStorage.getItem("key")) document.getElementById("login" ).remove();
 			else                             document.getElementById("logout").remove();
+
+			function setLocation(url) {
+				let href = window.location.href;
+				let prefix = href.split(/(?<!(\/))\/(?!(\/))/)[0];
+				let suffix = "";
+				if (href.startsWith("https://phonetics.ling.udel.edu"))
+					prefix = "https://phonetics.ling.udel.edu";
+				if (href.startsWith("file:///")) {
+					prefix = href.split("/").slice(0,-1).join("/");
+					suffix = ".html";
+				}
+				if (href.startsWith("https://codebodger.github.io/IPA_Keyboard_Website"))
+					prefix = "https://codebodger.github.io/IPA_Keyboard_Website";
+				
+				location.assign(prefix + url + suffix);
+			}
 		</script>
 	</div>
 
