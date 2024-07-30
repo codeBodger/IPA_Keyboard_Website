@@ -19,6 +19,23 @@
 		</style>
 	</head>
 	<body>
+		<h2 id="move-to-udel.edu" style="visibility: hidden; height: 0; margin: 0px;">
+			At this location, you cannot use this site with a client.&nbsp; Click <a href="https://phonetics.ling.udel.edu/">here</a> for the proper site.
+			<script>
+				var moveToUdelEdu = document.getElementById("move-to-udel.edu");
+				if ( false
+				 || window.location.href.startsWith("https://phonetics.ling.udel.edu")
+				 ) {
+					moveToUdelEdu.remove();
+				}
+				else {
+					moveToUdelEdu.style.visibility = 'visible';
+					moveToUdelEdu.style.height = 'auto';
+					moveToUdelEdu.style.padding = '20px';
+				}
+			</script>
+		</h2>
+
 		<script>
 			if (localStorage.getItem("key")) location.assign('/');
 		</script>
