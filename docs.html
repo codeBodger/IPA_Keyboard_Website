@@ -1,69 +1,69 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <style>
+	<head>
+		<style>
 			body {
 				margin: 0;
 			}
 
-            h1 {
-                text-align: center;
-            }
-            div {
-                margin: auto;
-                width: fit-content;
-            }
+			h1 {
+				text-align: center;
+			}
+			div {
+				margin: auto;
+				width: fit-content;
+			}
 
-            .info {
-                background-color: #ccf;
-                border: 1px solid #bbd;
-                padding: 0 1em;
-                margin-top: 5px;
-                margin-bottom: 1em;
-            }
-            
-            label {
-                font-size: 24px;
-            }
-            button,
-            input {
-                font-size: 20px;
-                margin: 5px 0;
-            }
-            button {
-                background-color: #c693ff;
-                cursor: pointer;
-                border-width: 0;
-                pointer-events: initial;
-                padding: 4px;
-            }
-            button:hover {
-                background-color: #e2c7ff;
-            }
-            button:active {
-                background-color: #b0f;
-            }
+			.info {
+				background-color: #ccf;
+				border: 1px solid #bbd;
+				padding: 0 1em;
+				margin-top: 5px;
+				margin-bottom: 1em;
+			}
+			
+			label {
+				font-size: 24px;
+			}
+			button,
+			input {
+				font-size: 20px;
+				margin: 5px 0;
+			}
+			button {
+				background-color: #c693ff;
+				cursor: pointer;
+				border-width: 0;
+				pointer-events: initial;
+				padding: 4px;
+			}
+			button:hover {
+				background-color: #e2c7ff;
+			}
+			button:active {
+				background-color: #b0f;
+			}
 
-            .menu-button {
-                min-width: 20vw;
-                background-color: #00e48c;
-            }
-            .menu-button:hover {
-                background-color: #19c281;
-            }
-            .menu-button:active {
-                background-color: #0c8255;
-            }
-        </style>
-    </head>
-    <body>
+			.menu-button {
+				min-width: 20vw;
+				background-color: #00e48c;
+			}
+			.menu-button:hover {
+				background-color: #19c281;
+			}
+			.menu-button:active {
+				background-color: #0c8255;
+			}
+		</style>
+	</head>
+	<body>
 		<div id="menu" style="float: right; margin-right: 10px; width: fit-content">
 			<button class="menu-button" onclick="setLocation('/');">Home</button>
 			<button class="menu-button" onclick="setLocation('/tutorial')">Tutorial</button>
 			<button class="menu-button" style="cursor: auto; background-color: #19c281;">Documentation</button>
 			<script>
 				if (localStorage.getItem("key")) document.getElementById("login" ).remove();
-				else                             document.getElementById("logout").remove();
+				else							 document.getElementById("logout").remove();
 
 				function setLocation(url) {
 					let href = window.location.href;
@@ -84,8 +84,8 @@
 			</script>
 		</div><br><br>
 
-        <h1 style="color: red;">Docs page coming soon!</h1>
-        <h3>For now, you can find the (oudated) docs <a href="https://github.com/codeBodger/IPA_Keyboard_Website#readme">here</a>.</h3>
+		<h1 style="color: red;">Docs page coming soon!</h1>
+		<h3>For now, you can find the (oudated) docs <a href="https://github.com/codeBodger/IPA_Keyboard_Website#readme">here</a>.</h3>
 
 		<div class="info">
 			<div class="text">
@@ -96,6 +96,6 @@
 			</div>
 		</div>
 
-        <div><p>© 2024 by <a href="https://github.com/codeBodger">Rowan Ackerman</a></p></div>
-    </body>
+		<div><p>© 2024 by <a href="https://github.com/codeBodger">Rowan Ackerman</a></p></div>
+	</body>
 </html>
