@@ -8,25 +8,45 @@
 
 			h1 {
 				text-align: center;
-			}
-			div {
-				margin: auto;
-				width: fit-content;
+				margin-bottom: 0;
 			}
 
+			h2 {
+                margin: 0;
+                text-decoration: underline;
+                height: fit-content;
+                margin-bottom: 5px;
+            }
+			h2.subsequent {
+                margin-top: 10px;
+			}
+
+			div {
+				margin: auto;
+				max-width: fit-content;
+			}
 			.info {
 				background-color: #ccf;
 				border: 1px solid #bbd;
-				padding: 0 1em;
+				padding: 16px 1em;
 				margin-top: 5px;
 				margin-bottom: 1em;
+                max-width: 612px;
 			}
-			
-			label {
-				font-size: 24px;
+
+			p, ul {
+				margin: 0;
+				line-height: 1.15em;
 			}
-			button,
-			input {
+
+            span {
+                font-family: monospace;
+                color: #188038;
+                font-size: 1.15em;
+                line-height: 0;
+            }
+
+			button {
 				font-size: 20px;
 				margin: 5px 0;
 			}
@@ -84,8 +104,47 @@
 			</script>
 		</div><br><br>
 
-		<h1 style="color: red;">Tutorial page coming soon!</h1>
-		<h3>For now, you can find some (outdated) docs <a href="https://github.com/codeBodger/IPA_Keyboard_Website#readme">here</a>.</h3>
+		<h1>Tutorial Video</h1>
+		<div class="info">
+			<h2>Coming soon.</h2>
+		</div>
+
+		<h1>Usage of the Program/Website</h1>
+		<div class="info">
+			<h2>With Client</h2>
+			<p>Note: This only works when BOTH DEVICES are connected to a UD network (i.e. on-campus or connected to the <a href="https://udeploy.udel.edu/software/anyconnect-vpn/">UD VPN</a>).</p>
+			<ul>
+				<li>Download the appropriate executable file (do this on the computer that you want the characters to be sent to).</li>
+				<li>You can find all of the releases <a href="https://github.com/codeBodger/IPA_Keyboard_Client_with_Robot/releases">here</a>.</li>
+				<li>Click on the first release in the list (this is the newest) and download the appropriate file:<ul>
+					<li>For Windows: download the Windows executable file and run it.</li>
+					<li>For MacOS: download the MacOS executable file and run it.</li>
+					<li>For Linux: sorry, this isn't supported yet.&nbsp; You'll need to download the source and get all of the dependencies yourself.&nbsp; The information in the release should be helpful.</li>
+				</ul></li>
+				<li>Run the executable.</li>
+				<li>Go to the <a href="https://phonetics.ling.udel.edu/login">login page</a> on the device that you want to type on.</li>
+				<li>Enter the linking code that was generated when you ran the program or clicked <span>Get New Linking Code</span> into the text box and click <span>Login</span>.</li>
+				<li>The program should be working now!&nbsp; Simply click the buttons and the characters should appear on the computer that you ran the executable on.</li>
+				<li>After an hour of inactivity, you will be timed out.<ul>
+					<li>To reactivate the existing link(s), simply press <span>Renew</span> on the Client.</li>
+				</ul></li>
+				<li>If you want to type from multiple devices onto one computer:<ul>
+					<li>Press <span>Get New Linking Code</span> on the Client, and type it into the <a href="https://phonetics.ling.udel.edu/login">login page</a> as previously.</li>
+				</ul></li>
+				<li>Whenever you close (or <span>Stop</span>) and reopen/rerun the Client, you will have to <span>Logout</span> and re<span>Login</span> on the website in all locations.</li>
+			</ul>
+
+			<h2>Copy and Paste (without Client / on one Device)</h2>
+			<ul>
+				<li>Go to either <a href="https://phonetics.ling.udel.edu/">phonetics.ling.udel.edu</a> or <a href="https://codebodger.github.io/IPA_Keyboard_Website/">codeBodger.github.io/IPA_Keyboard_Website</a>.</li>
+				<li>Click <span>Logout</span> if necessary.</li>
+				<li>Click the buttons and the characters should appear in the text box.</li>
+				<li>Then click <span>Copy</span> to copy them to your clipboard.</li>
+			</ul>
+
+			<h2>General Usage Information</h2>
+			<p>You can use the purple buttons directly above the chart to select only certain sub&#x2011;charts.&nbsp; You may want to do this if your screen is particularly small.</p>
+		</div>
 
 		<div class="info">
 			<div class="text">
