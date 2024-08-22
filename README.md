@@ -28,8 +28,9 @@ Note: This only works when BOTH DEVICES are connected to a UD network (i.e. on-c
 You can use the purple buttons directly above the chart to select only certain sub&#x2011;charts.&nbsp; You may want to do this if your screen is particularly small.
 
 ## Questions, Comments, and Issues
-- I'll try to check the [Issues](https://github.com/codeBodger/IPA_Keyboard_Client_with_Robot/issues) on [my GitHub](https://github.com/codeBodger), but I make no promisses.
-- The best thing to do would be to open an issue (as mentioned above) and send me an email at [rnackerm+ipa@udel.edu](rnackerm+ipa@udel.edu).
+- Queries and comments can be directed to [rnackerm+ipa@udel.edu](rnackerm+ipa@udel.edu).
+- Additionally, I'll try to regularly check the [Issues](https://github.com/codeBodger/IPA_Keyboard_Client_with_Robot/issues) on [my GitHub](https://github.com/codeBodger), so if you have an acutal issue, I suggest this.
+[comment]: Make sure to update this everywhere.
 - Alternatively, if you're in LING 202 with me (you probably know if you are), you can stop me after class, and I'll try to answer your questions then.
 
 ## Technical Details

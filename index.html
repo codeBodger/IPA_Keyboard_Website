@@ -12,18 +12,34 @@
 			--chart-scale: 1.5;
 		}
 
+		h2 {
+			margin: 0;
+			margin-bottom: 5px;
+			text-decoration: underline;
+			height: fit-content;
+		}
+
 		div {
 			margin: auto;
 			width: 612px;
 		}
-
 		.info {
 			background-color: #ccf;
 			border: 1px solid #bbd;
-			padding: 0 1em;
+			padding: 16px 1em;
 			margin-bottom: 1em;
+			max-width: fit-content !important;
+			max-width: 612px;
 		}
-		
+
+		p {
+			text-indent: .5cm;
+		}
+		p, ul {
+			margin: 0;
+			line-height: 1.15;
+		}
+
 		.problem {
 			color: red;
 		}
@@ -179,17 +195,12 @@
 		<a id="hideInfo" href="javascript:hideInfo();">Hide info</a>
 	</div>
 	<div class="info">
-		<div class="text">
-			<p>The <a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet">International Phonetic Alphabet</a> (IPA) is a set of symbols that linguists use to describe the sounds of spoken languages.</p>
-			<p>This site allows you to press buttons for IPA symbols on your phone (or other device) and have them typed on your computer (provided you have it configured correctly).</p>
-			<p>Alteratively, you can press the buttons and copy and paste the output (if you are not logged in).</p>
-		</div>
-		<div class="text">
-			<h2><a href="/docs">CLICK HERE FOR INSTRUCTIONS FOR THE USAGE OF THIS SITE/PROGRAM</a></h2>
-		</div>
-		<div class="text">
-			<p>If the site doesn't work, make sure you're using the right key, given to you by the client.&nbsp; If you are, then make sure you haven't been timed out (this usually happens after a little more than an hour of inactivity).&nbsp; If you have been timed out, simply press "Renew" and you should be good to go.&nbsp; If that doesn't work, restart the client, logout, and enter the new key.</p>
-		</div>
+		<p>The <a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet">International Phonetic Alphabet</a> (IPA) is a set of symbols that linguists use to describe the sounds of spoken languages.</p>
+		<p>This site allows you to press buttons for IPA symbols on your phone (or other device) and have them typed on your computer (provided you have it configured correctly).</p>
+		<p>Alteratively, you can press the buttons and copy and paste the output (if you are not logged in).</p>
+		<h2><a href="/docs">CLICK HERE FOR INSTRUCTIONS FOR THE USAGE OF THIS SITE/PROGRAM</a></h2>
+		<p>If the site doesn't work, make sure you're using the right key, given to you by the client.&nbsp; If you are, then make sure you haven't been timed out (this usually happens after a little more than an hour of inactivity).&nbsp; If you have been timed out, simply press "Renew" and you should be good to go.&nbsp; If that doesn't work, restart the client, logout, and enter the new key.</p>
+
 		<script>
 			function updateShowInfo() {
 				var infos = document.getElementsByClassName("info")
@@ -1437,18 +1448,21 @@
 	</div> -->
 	
 	<div class="info showAlways">
-		<div class="text">
-			<p>Queries and comments can be directed to <a id="email" href="/">rnackerm+ipa@udel.edu</a></p>
-			<script>
-				document.getElementById("email").setAttribute("href", "mailto:rnackerm+ipa@udel.edu");
-			</script>
-		</div>
+		<h2>Questions, Comments, and Issues</h2>
+		<ul>
+			<li>Queries and comments can be directed to <a id="email" href="/">rnackerm+ipa@udel.edu</a>.</li>
+			<li>Additionally, I'll try to regularly check the <a href="https://github.com/codeBodger/IPA_Keyboard_Client_with_Robot/issues">Issues</a> on <a href="https://github.com/codeBodger">my GitHub</a>, so if you have an acutal issue, I suggest this.</li>
+			<!-- Make sure to update this everywhere. -->
+			<li>Alternatively, if you're in LING 202 with me (you probably know if you are), you can stop me after class, and I'll try to answer your questions then.</li>
+		</ul>
 		<script>
+			document.getElementById("email").setAttribute("href", "mailto:rnackerm+ipa@udel.edu");
+
 			updateShowInfo();
 		</script>
 	</div>
 
-	<div><p>© 2024 by <a href="https://github.com/codeBodger">Rowan Ackerman</a></p></div>
+	<div>© 2024 by <a href="https://github.com/codeBodger">Rowan Ackerman</a></div>
 
 	<script id="table">
 		const TABLE = [];
