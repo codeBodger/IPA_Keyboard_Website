@@ -25,8 +25,8 @@ Note: This only works when BOTH DEVICES are connected to a UD network (i.e. on-c
 - Click the buttons and the characters should appear in the text box.
 - Then click `Copy` to copy them to your clipboard.
 ### General Usage Information
-You can use the purple buttons above the chart to select only certain sub&#x2011;charts.&nbsp; You may want to do this if your screen is particularly small.
-The slider directly above the chart can be used to adjust the scaling of the chart.&nbsp; This is helpful if your screen has a different aspect ratio.
+- You can use the purple buttons above the chart to select only certain sub&#x2011;charts.&nbsp; You may want to do this if your screen is particularly small.
+- The slider directly above the chart can be used to adjust the scaling of the chart.&nbsp; This is helpful if your screen has a different aspect ratio.
 
 ## Questions, Comments, and Issues
 - Queries and comments can be directed to [rnackerm+ipa@udel.edu](rnackerm+ipa@udel.edu).
