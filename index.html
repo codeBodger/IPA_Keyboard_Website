@@ -56,8 +56,7 @@
 		}
 
 		label {
-			display: inline-block;
-			width: 5em;
+			margin: 2px;
 		}
 		
 		body {
@@ -134,6 +133,38 @@
 		}
 		.menu-button:active {
 			background-color: #0c8255;
+		}
+
+		.control button, #user-scale, label {
+			height: 40px;
+			margin: 2px;
+			display: flex;
+			align-items: center;
+		}
+
+		#user-scale {
+			-webkit-appearance: none;  /* Override default CSS styles */
+			appearance: none;
+			background: #ddd;
+			outline: none;
+		}
+		#user-scale::-webkit-slider-thumb,
+		#user-scale::-moz-range-thumb {
+			-webkit-appearance: none;
+			appearance: none;
+			height: 100%;
+			background: #c693ff;
+			cursor: pointer;
+			border-width: 0;
+			border-radius: 0;
+		}
+		#user-scale:hover::-webkit-slider-thumb,
+		#user-scale:hover::-moz-range-thumb {
+			background: #e2c7ff;
+		}
+		#user-scale:active::-webkit-slider-thumb,
+		#user-scale:active::-moz-range-thumb {
+			background: #b0f;
 		}
 
 		#html {
@@ -349,7 +380,7 @@
 
 	<br>
 
-	<div id="control-buttons" style="position: relative; z-index: 1; margin: 0 2%; width: auto; height: 2em;">
+	<div id="control-buttons" class="control" style="display: flex; position: relative; z-index: 1; margin: 0 2%; width: auto;">
 		<button onclick="whole();">All</button><!-- <br> --> <!-- Should call a function called `all`, but that apparently exists partially, so the button did nothing -->
 		<button onclick="pulmonic();">Pulmonic</button><!-- <br> -->
 		<button onclick="nonPulmonic();">Non-Pulmonic</button>
@@ -357,7 +388,28 @@
 		<button onclick="otherSymbols();">Other Symbols</button>
 		<button onclick="suprasegmentals();">Suprasegmentals</button><!-- <br> -->
 		<button onclick="diacritics();">Diacritics</button>
-		<button onclick="tones();">Tones and Word Accents</button>
+		<button onclick="tones();">Tones&nbsp;and Word&nbsp;Accents</button>
+	</div>
+
+	<div id="slider-stuff" class="control" style="display: flex; margin: 0 2%;">
+		<label for="user-scale">Resize Chart:</label>
+		<input id="user-scale" type="range" min="0" max="2" value="1" step=".01"
+			onpointermove="setUserScale(document.getElementById('user-scale').value);"
+			onclick="setUserScale(document.getElementById('user-scale').value);"
+			onmouseup="setUserScale(document.getElementById('user-scale').value);" />
+		<button onclick="setUserScale(1)">Reset Scale</button>
+		<script>
+			function setUserScale(val) {
+				localStorage.setItem('userScale', val);
+				document.getElementById("user-scale").value = getUserScale();
+				fixChartSize();  // Do not remove.  Causes an error only at beginning.  Is necessary for size update.  
+			}
+			function getUserScale() {
+				const userScale = parseFloat(localStorage.getItem("userScale"));
+				return !isNaN(userScale) ? userScale : 1;
+			}
+			setUserScale(getUserScale());
+		</script>
 	</div>
 
 	<div id="chart">
@@ -1438,7 +1490,7 @@
 				const chart = document.getElementById("chart");
 				const bodyWidth = parseFloat(getComputedStyle(document.body).width);
 				const currentChartWidth = parseFloat(getComputedStyle(chart).width);
-				document.querySelector(':root').style.setProperty("--chart-scale", `${bodyWidth / currentChartWidth}`);
+				document.querySelector(':root').style.setProperty("--chart-scale", `${getUserScale() * bodyWidth / currentChartWidth}`);
 				const chartRect = document.getElementById("chart-svg").getBoundingClientRect();
 				chart.style.height = `${chartRect.height}px`;
 			}
