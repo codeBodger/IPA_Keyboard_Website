@@ -31,7 +31,7 @@ Note: This only works when BOTH DEVICES are connected to a UD network (i.e. on-c
 ## Questions, Comments, and Issues
 - Queries and comments can be directed to [rnackerm+ipa@udel.edu](rnackerm+ipa@udel.edu).
 - Additionally, I'll try to regularly check the [Issues](https://github.com/codeBodger/IPA_Keyboard_Client_with_Robot/issues) on [my GitHub](https://github.com/codeBodger), so if you have an acutal issue, I suggest this.
-[comment]: Make sure to update this everywhere.
+<!-- Make sure to update this everywhere. -->
 - Alternatively, if you're in LING 202 with me (you probably know if you are), you can stop me after class, and I'll try to answer your questions then.
 
 ## Technical Details
